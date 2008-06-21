@@ -1,0 +1,17 @@
+<% if(@net.users.empty?) %>
+No users
+<% else %>
+<div>
+<%fb_table do %>
+ <% @net.users.each_slice(4) { |user_arr| %>
+  <%fb_tr do %>
+      <% for user in user_arr %>
+        <% fb_td do %>
+    	  <%= fb_picture(user.picture,:size=>'small') %>
+        <% end %>
+      <% end %>
+  <% end %>
+ <% } %>
+<%end%>
+</div>
+<%end %>

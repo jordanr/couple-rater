@@ -1,0 +1,16 @@
+<% if(@fb_affs.nil? || @fb_affs.length==0) %> 
+  <%=fb_explanation("Sorry, you don't have any networks") %>
+<% else %>
+<h2>What networks do you want to be coupled in?</h2>
+<fb:editor action='<%=url_for(:controller=>"users",:action=>"change_networks")%>' >
+  <% for fb_aff in @fb_affs %>
+    <fb:editor-custom label="<%=fb_aff.name%>" >
+      <%=check_box_tag fb_aff.name, '1', @cr_user.networks.exists?(:fb_id=>fb_aff.nid)%>
+    </fb:editor-custom>
+<%end%>
+     <fb:editor-buttonset>
+          <fb:editor-button value="Save Changes"/>
+          <fb:editor-cancel />
+     </fb:editor-buttonset>
+</fb:editor>
+<%end%>

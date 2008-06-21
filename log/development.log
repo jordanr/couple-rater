@@ -1,0 +1,751 @@
+# Logfile created on Mon Jun 09 21:36:27 +0000 2008
+
+Processing ApplicationController#install (for 69.63.176.90 at 2008-06-09 22:10:14) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049414.5156", "fb_sig"=>"4237724e37ca4e46c74dccf20620cc85", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"install", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"application", "canvas"=>true, "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;36;1mUser Load (0.000585)[0m   [0;1mSELECT users.id FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+ Posting to http://api.facebook.com/restserver.php {:uids=>562517137, :sig=>"144ddac5548a93213928c10162e8fd2b", :call_id=>"1213049414.77163", :v=>"1.0", :method=>"facebook.users.getInfo", :fields=>"status,political,pic_small,name,quotes,is_app_user,tv,profile_update_time,meeting_sex,hs_info,timezone,relationship_status,hometown_location,about_me,wall_count,significant_other_id,pic_big,music,uid,work_history,sex,religion,notes_count,activities,pic_square,movies,has_added_app,education_history,birthday,first_name,meeting_for,last_name,interests,current_location,pic,books,affiliations", :api_key=>"68e0325141a343219ee5d9fdb6e1ad75", :session_key=>"fb2eceb34ee6de0da3a6e7dc-562517137"} 
+ Return value <?xml version="1.0" encoding="UTF-8"?>
+<users_getInfo_response xmlns="http://api.facebook.com/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://api.facebook.com/1.0/ http://api.facebook.com/1.0/facebook.xsd" list="true">
+  <user>
+    <uid>562517137</uid>
+    <status>
+      <message/>
+      <time>0</time>
+    </status>
+    <political/>
+    <pic_small>http://profile.ak.facebook.com/v228/26/88/t562517137_624.jpg</pic_small>
+    <name>Richard Jordan</name>
+    <quotes/>
+    <is_app_user>1</is_app_user>
+    <tv/>
+    <profile_update_time>0</profile_update_time>
+    <meeting_sex list="true"/>
+    <hs_info>
+      <hs1_name/>
+      <hs2_name/>
+      <hs1_id>0</hs1_id>
+      <hs2_id>0</hs2_id>
+    </hs_info>
+    <timezone>-7</timezone>
+    <relationship_status/>
+    <hometown_location>
+      <zip/>
+    </hometown_location>
+    <about_me/>
+    <wall_count>2</wall_count>
+    <significant_other_id/>
+    <pic_big>http://profile.ak.facebook.com/v228/26/88/n562517137_624.jpg</pic_big>
+    <music/>
+    <uid>562517137</uid>
+    <work_history list="true"/>
+    <sex/>
+    <religion/>
+    <notes_count>0</notes_count>
+    <activities/>
+    <pic_square>http://profile.ak.facebook.com/v228/26/88/q562517137_624.jpg</pic_square>
+    <movies/>
+    <has_added_app>1</has_added_app>
+    <education_history list="true">
+      <education_info>
+        <name>Washington</name>
+        <year>2008</year>
+        <concentrations list="true"/>
+        <degree/>
+      </education_info>
+    </education_history>
+    <birthday>April 19, 1986</birthday>
+    <first_name>Richard</first_name>
+    <meeting_for list="true"/>
+    <last_name>Jordan</last_name>
+    <interests/>
+    <current_location>
+      <zip/>
+    </current_location>
+    <pic>http://profile.ak.facebook.com/v228/26/88/s562517137_624.jpg</pic>
+    <books/>
+    <affiliations list="true">
+      <affiliation>
+        <nid>16777324</nid>
+        <name>Washington</name>
+        <type>college</type>
+        <status>Undergrad</status>
+        <year>2008</year>
+      </affiliation>
+      <affiliation>
+        <nid>67109125</nid>
+        <name>Bellevue, WA</name>
+        <type>region</type>
+        <status/>
+        <year>0</year>
+      </affiliation>
+    </affiliations>
+  </user>
+</users_getInfo_response>
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT users.id FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+  [4;36;1mUser Load (0.000732)[0m   [0;1mSELECT * FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+  [4;35;1mUser Update (0.000936)[0m   [0mUPDATE users SET "created_at" = '2008-06-06 17:37:25', "session_key" = 'fb2eceb34ee6de0da3a6e7dc-562517137', "with_women" = 't', "see_question_marks" = 't', "with_men" = 't', "picture_id" = 431, "last_name" = 'Jordan', "friends_can_see_my_matches" = 't', "non_friends_can_see_my_matches" = 't', "gender" = 'f', "updated_at" = '2008-06-09 22:10:15', "first_name" = 'Richard', "fb_id" = 562517137 WHERE "id" = 45[0m
+Completed in 0.30227 (3 reqs/sec) | Rendering: 0.00007 (0%) | DB: 0.00225 (0%) | 200 OK [http://db240296.fb.joyent.us/]
+
+
+Processing CoupleRaterController#browse (for 204.15.23.168 at 2008-06-09 22:10:15) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049415.2301", "fb_sig"=>"b4f021875e002a57cb65d67bb04efcfe", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"browse", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"couple_rater", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;36;1mUser Load (0.000860)[0m   [0;1mSELECT * FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+  [4;35;1mPrompt Load (0.001117)[0m   [0mSELECT * FROM prompts ORDER BY RANDOM() LIMIT 1[0m
+  [4;36;1mPicture Load (0.000854)[0m   [0;1mSELECT pictures.id FROM pictures WHERE (pictures."fb_id" = 10701333) LIMIT 1[0m
+  [4;35;1mPicture Load (0.000690)[0m   [0mSELECT * FROM pictures WHERE (pictures."fb_id" = 10701333) LIMIT 1[0m
+  [4;36;1mPicture Load (0.000772)[0m   [0;1mSELECT pictures.id FROM pictures WHERE (pictures."fb_id" = 10728457) LIMIT 1[0m
+  [4;35;1mPicture Load (0.000585)[0m   [0mSELECT * FROM pictures WHERE (pictures."fb_id" = 10728457) LIMIT 1[0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering couple_rater/browse
+  [4;36;1mNetwork Load (0.001044)[0m   [0;1mSELECT * FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) [0m
+  [4;35;1mUser Load (0.001038)[0m   [0mSELECT * FROM users WHERE (users."id" = 19) [0m
+Completed in 0.08975 (11 reqs/sec) | Rendering: 0.03171 (35%) | DB: 0.00696 (7%) | 200 OK [http://db240296.fb.joyent.us/couple_rater/browse]
+
+
+Processing AdsController#sidebar_adsense (for 24.16.105.220 at 2008-06-09 22:10:17) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049415.4807", "fb_sig_in_iframe"=>"1", "fb_sig"=>"7136918b638a35a39bdbc4aa706fb9b1", "action"=>"sidebar_adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00439 (227 reqs/sec) | Rendering: 0.00007 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/sidebar_adsense?fb_sig_in_iframe=1&fb_sig_time=1213049415.4807&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=7136918b638a35a39bdbc4aa706fb9b1]
+
+
+Processing AdsController#adsense (for 24.16.105.220 at 2008-06-09 22:10:17) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049415.7537", "fb_sig_in_iframe"=>"1", "fb_sig"=>"5ec10e302e3b000b73d9f1e243b4b595", "action"=>"adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00443 (225 reqs/sec) | Rendering: 0.00006 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/adsense?fb_sig_in_iframe=1&fb_sig_time=1213049415.7537&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=5ec10e302e3b000b73d9f1e243b4b595]
+
+
+Processing UsersController#see_matches (for 204.15.23.171 at 2008-06-09 22:10:23) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049422.9477", "fb_sig"=>"0f8d7a60d22645c30283b5ff166351e0", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"see_matches", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"users", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;36;1mUser Load (0.000851)[0m   [0;1mSELECT * FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+  [4;35;1mPicture Load (0.000467)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 431 AND (pictures.user_id = 45)) [0m
+  [4;36;1mNetwork Load (0.000340)[0m   [0;1mSELECT networks.id FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) AND (networks."id" IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT networks.id FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) AND (networks."id" IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.000922)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mCouple Load (0.000751)[0m   [0mSELECT * FROM couples WHERE picture_id1=431 OR picture_id2=431[0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering users/see_matches
+  [4;36;1mNetwork Load (0.000630)[0m   [0;1mSELECT * FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) [0m
+Completed in 0.15527 (6 reqs/sec) | Rendering: 0.01447 (9%) | DB: 0.00396 (2%) | 200 OK [http://db240296.fb.joyent.us/users/see_matches]
+
+
+Processing AdsController#adsense (for 24.16.105.220 at 2008-06-09 22:10:24) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049423.2516", "fb_sig_in_iframe"=>"1", "fb_sig"=>"fa5e6e0a0e3131fee7bf187b5b86fd60", "action"=>"adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00444 (225 reqs/sec) | Rendering: 0.00005 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/adsense?fb_sig_in_iframe=1&fb_sig_time=1213049423.2516&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=fa5e6e0a0e3131fee7bf187b5b86fd60]
+
+
+Processing UsersController#see_friends (for 69.63.176.90 at 2008-06-09 22:10:26) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049426.7226", "fb_sig"=>"d8d96c31bd71f0235c01d42adb33ceb4", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"see_friends", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"users", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+ Posting to http://api.facebook.com/restserver.php {:sig=>"319881c635bafa904fc7a6bf09b67d77", :call_id=>"1213049426.83914", :v=>"1.0", :method=>"facebook.friends.getAppUsers", :api_key=>"68e0325141a343219ee5d9fdb6e1ad75", :session_key=>"fb2eceb34ee6de0da3a6e7dc-562517137"} 
+ Return value <?xml version="1.0" encoding="UTF-8"?>
+<friends_getAppUsers_response xmlns="http://api.facebook.com/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://api.facebook.com/1.0/ http://api.facebook.com/1.0/facebook.xsd" list="true">
+  <uid>1179772310</uid>
+</friends_getAppUsers_response>
+  [4;35;1mPicture Load (0.002320)[0m   [0mSELECT * FROM pictures WHERE (pictures."fb_id" IN (5213499,10701333,10725438,10728457,10730112,575171012,1179772310)) [0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering users/see_friends
+  [4;36;1mUser Load (0.000744)[0m   [0;1mSELECT users.id FROM users WHERE (users."fb_id" = 1179772310) LIMIT 1[0m
+  [4;35;1mUser Load (0.000957)[0m   [0mSELECT * FROM users WHERE (users."fb_id" = 1179772310) LIMIT 1[0m
+  [4;36;1mPicture Load (0.000583)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 80 AND (pictures.user_id = 36)) [0m
+  [4;35;1mUser Load (0.000940)[0m   [0mSELECT * FROM users WHERE (users."id" = 36) [0m
+  [4;36;1mUser Load (0.001008)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 8) [0m
+  [4;35;1mUser Load (0.001174)[0m   [0mSELECT * FROM users WHERE (users."id" = 14) [0m
+  [4;36;1mUser Load (0.000547)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 19) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 36) [0m
+Completed in 0.15410 (6 reqs/sec) | Rendering: 0.04419 (28%) | DB: 0.00827 (5%) | 200 OK [http://db240296.fb.joyent.us/users/see_friends]
+
+
+Processing AdsController#adsense (for 24.16.105.220 at 2008-06-09 22:10:28) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049427.067", "fb_sig_in_iframe"=>"1", "fb_sig"=>"7bc9b826b2811228b9d1752614e7bcb2", "action"=>"adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00423 (236 reqs/sec) | Rendering: 0.00006 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/adsense?fb_sig_in_iframe=1&fb_sig_time=1213049427.067&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=7bc9b826b2811228b9d1752614e7bcb2]
+
+
+Processing CoupleRaterController#see_globals (for 204.15.23.171 at 2008-06-09 22:10:32) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049431.9955", "fb_sig"=>"c371cbceb6ed0dcb1c3206b6b2cca1bb", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"see_globals", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"couple_rater", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;36;1mCouple Load (0.133140)[0m   [0;1mSELECT * FROM couples ORDER BY created_at DESC[0m
+  [4;35;1mCouple Load (0.064803)[0m   [0mSELECT * FROM couples ORDER BY updated_at DESC[0m
+  [4;36;1mCouple Load (0.062858)[0m   [0;1mSELECT * FROM couples ORDER BY ratings_count DESC[0m
+  [4;35;1mCouple Load (0.060053)[0m   [0mSELECT * FROM couples [0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering couple_rater/see_globals
+  [4;36;1mSQL (0.000902)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPicture Load (0.000390)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 538) [0m
+  [4;36;1mPicture Load (0.000312)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 539) [0m
+  [4;35;1mPicture Load (0.000437)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 38) [0m
+  [4;36;1mPicture Load (0.000331)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 463) [0m
+  [4;35;1mUser Load (0.000679)[0m   [0mSELECT * FROM users WHERE (users."id" = 13) [0m
+  [4;36;1mUser Load (0.000584)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 47) [0m
+  [4;35;1mPicture Load (0.000373)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 486) [0m
+  [4;36;1mPicture Load (0.000332)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 527) [0m
+  [4;35;1mPicture Load (0.000329)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 485) [0m
+  [4;36;1mPicture Load (0.000325)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 525) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 525) [0m
+  [4;36;1mPicture Load (0.000337)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 526) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 538) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 539) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 38) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 463) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 13) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 47) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 486) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 527) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 485) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 525) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 525) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 526) [0m
+  [4;35;1mPicture Load (0.000463)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 30) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 38) [0m
+  [4;35;1mUser Load (0.000538)[0m   [0mSELECT * FROM users WHERE (users."id" = 8) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 13) [0m
+  [4;35;1mPicture Load (0.000354)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 31) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 30) [0m
+  [4;35;1mUser Load (0.000514)[0m   [0mSELECT * FROM users WHERE (users."id" = 9) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 8) [0m
+  [4;35;1mPicture Load (0.000328)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 36) [0m
+  [4;36;1mPicture Load (0.000318)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 32) [0m
+  [4;35;1mUser Load (0.000521)[0m   [0mSELECT * FROM users WHERE (users."id" = 11) [0m
+  [4;36;1mUser Load (0.000525)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 10) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 32) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 38) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 10) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 13) [0m
+  [4;35;1mPicture Load (0.000494)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 39) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 36) [0m
+  [4;35;1mUser Load (0.000735)[0m   [0mSELECT * FROM users WHERE (users."id" = 14) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 11) [0m
+  [4;35;1mPicture Load (0.000483)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 70) [0m
+  [4;36;1mPicture Load (0.000331)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 34) [0m
+  [4;35;1mUser Load (0.000562)[0m   [0mSELECT * FROM users WHERE (users."id" = 35) [0m
+  [4;36;1mUser Load (0.000496)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 6) [0m
+  [4;35;1mPicture Load (0.000318)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 33) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 70) [0m
+  [4;35;1mUser Load (0.000500)[0m   [0mSELECT * FROM users WHERE (users."id" = 7) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 35) [0m
+  [4;35;1mPicture Load (0.000381)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 54) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 32) [0m
+  [4;35;1mUser Load (0.000576)[0m   [0mSELECT * FROM users WHERE (users."id" = 24) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 10) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 39) [0m
+  [4;36;1mPicture Load (0.000358)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 65) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 14) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 13) [0m
+  [4;35;1mPicture Load (0.000354)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 48) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 65) [0m
+  [4;35;1mUser Load (0.000497)[0m   [0mSELECT * FROM users WHERE (users."id" = 22) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 13) [0m
+Completed in 0.66444 (1 reqs/sec) | Rendering: 0.07615 (11%) | DB: 0.33583 (50%) | 200 OK [http://db240296.fb.joyent.us/couple_rater/see_globals]
+
+
+Processing UsersController#see_pictures (for 204.15.23.170 at 2008-06-09 22:10:36) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049436.5353", "fb_sig"=>"2d6f570e23d12d8d08b47a28cae95984", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"see_pictures", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"users", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+ Posting to http://api.facebook.com/restserver.php {:sig=>"10227bdb41a0e6c9ab109d051a97991e", :pids=>nil, :call_id=>"1213049436.68918", :subj_id=>nil, :v=>"1.0", :method=>"facebook.photos.get", :aid=>2415992711149518845, :api_key=>"68e0325141a343219ee5d9fdb6e1ad75", :session_key=>"fb2eceb34ee6de0da3a6e7dc-562517137"} 
+ Return value <?xml version="1.0" encoding="UTF-8"?>
+<photos_get_response xmlns="http://api.facebook.com/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://api.facebook.com/1.0/ http://api.facebook.com/1.0/facebook.xsd" list="true">
+  <photo>
+    <pid>2415992706854686784</pid>
+    <aid>2415992711149518845</aid>
+    <owner>562517137</owner>
+    <src>http://photos-a.ak.facebook.com/photos-ak-sf2p/v141/26/74/562517137/s562517137_135232_8323.jpg</src>
+    <src_big>http://photos-a.ak.facebook.com/photos-ak-sf2p/v141/26/74/562517137/n562517137_135232_8323.jpg</src_big>
+    <src_small>http://photos-a.ak.facebook.com/photos-ak-sf2p/v141/26/74/562517137/t562517137_135232_8323.jpg</src_small>
+    <link>http://www.facebook.com/photo.php?pid=135232&amp;id=562517137</link>
+    <caption/>
+    <created>1191898768</created>
+  </photo>
+  <photo>
+    <pid>2415992706855032921</pid>
+    <aid>2415992711149518845</aid>
+    <owner>562517137</owner>
+    <src>http://photos-b.ak.facebook.com/photos-ak-sf2p/v254/26/74/562517137/s562517137_481369_34.jpg</src>
+    <src_big>http://photos-b.ak.facebook.com/photos-ak-sf2p/v254/26/74/562517137/n562517137_481369_34.jpg</src_big>
+    <src_small>http://photos-b.ak.facebook.com/photos-ak-sf2p/v254/26/74/562517137/t562517137_481369_34.jpg</src_small>
+    <link>http://www.facebook.com/photo.php?pid=481369&amp;id=562517137</link>
+    <caption/>
+    <created>1211150920</created>
+  </photo>
+  <photo>
+    <pid>2415992706855021757</pid>
+    <aid>2415992711149518845</aid>
+    <owner>562517137</owner>
+    <src>http://photos-f.ak.facebook.com/photos-ak-sf2p/v254/26/74/562517137/s562517137_470205_2918.jpg</src>
+    <src_big>http://photos-f.ak.facebook.com/photos-ak-sf2p/v254/26/74/562517137/n562517137_470205_2918.jpg</src_big>
+    <src_small>http://photos-f.ak.facebook.com/photos-ak-sf2p/v254/26/74/562517137/t562517137_470205_2918.jpg</src_small>
+    <link>http://www.facebook.com/photo.php?pid=470205&amp;id=562517137</link>
+    <caption/>
+    <created>1210644222</created>
+  </photo>
+  <photo>
+    <pid>2415992706854686819</pid>
+    <aid>2415992711149518845</aid>
+    <owner>562517137</owner>
+    <src>http://photos-d.ak.facebook.com/photos-ak-sf2p/v141/26/74/562517137/s562517137_135267_3869.jpg</src>
+    <src_big>http://photos-d.ak.facebook.com/photos-ak-sf2p/v141/26/74/562517137/n562517137_135267_3869.jpg</src_big>
+    <src_small>http://photos-d.ak.facebook.com/photos-ak-sf2p/v141/26/74/562517137/t562517137_135267_3869.jpg</src_small>
+    <link>http://www.facebook.com/photo.php?pid=135267&amp;id=562517137</link>
+    <caption/>
+    <created>1191899103</created>
+  </photo>
+  <photo>
+    <pid>2415992706854686818</pid>
+    <aid>2415992711149518845</aid>
+    <owner>562517137</owner>
+    <src>http://photos-c.ak.facebook.com/photos-ak-sf2p/v141/26/74/562517137/s562517137_135266_694.jpg</src>
+    <src_big>http://photos-c.ak.facebook.com/photos-ak-sf2p/v141/26/74/562517137/n562517137_135266_694.jpg</src_big>
+    <src_small>http://photos-c.ak.facebook.com/photos-ak-sf2p/v141/26/74/562517137/t562517137_135266_694.jpg</src_small>
+    <link>http://www.facebook.com/photo.php?pid=135266&amp;id=562517137</link>
+    <caption/>
+    <created>1191899030</created>
+  </photo>
+</photos_get_response>
+ Posting to http://api.facebook.com/restserver.php {:uids=>562517137, :sig=>"b7aa3b58b96019c49e28e3bac500ba00", :call_id=>"1213049436.85971", :v=>"1.0", :method=>"facebook.users.getInfo", :fields=>"status,political,pic_small,name,quotes,is_app_user,tv,profile_update_time,meeting_sex,hs_info,timezone,relationship_status,hometown_location,about_me,wall_count,significant_other_id,pic_big,music,uid,work_history,sex,religion,notes_count,activities,pic_square,movies,has_added_app,education_history,birthday,first_name,meeting_for,last_name,interests,current_location,pic,books,affiliations", :api_key=>"68e0325141a343219ee5d9fdb6e1ad75", :session_key=>"fb2eceb34ee6de0da3a6e7dc-562517137"} 
+ Return value <?xml version="1.0" encoding="UTF-8"?>
+<users_getInfo_response xmlns="http://api.facebook.com/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://api.facebook.com/1.0/ http://api.facebook.com/1.0/facebook.xsd" list="true">
+  <user>
+    <uid>562517137</uid>
+    <status>
+      <message/>
+      <time>0</time>
+    </status>
+    <political/>
+    <pic_small>http://profile.ak.facebook.com/v228/26/88/t562517137_624.jpg</pic_small>
+    <name>Richard Jordan</name>
+    <quotes/>
+    <is_app_user>1</is_app_user>
+    <tv/>
+    <profile_update_time>0</profile_update_time>
+    <meeting_sex list="true"/>
+    <hs_info>
+      <hs1_name/>
+      <hs2_name/>
+      <hs1_id>0</hs1_id>
+      <hs2_id>0</hs2_id>
+    </hs_info>
+    <timezone>-7</timezone>
+    <relationship_status/>
+    <hometown_location>
+      <zip/>
+    </hometown_location>
+    <about_me/>
+    <wall_count>2</wall_count>
+    <significant_other_id/>
+    <pic_big>http://profile.ak.facebook.com/v228/26/88/n562517137_624.jpg</pic_big>
+    <music/>
+    <uid>562517137</uid>
+    <work_history list="true"/>
+    <sex/>
+    <religion/>
+    <notes_count>0</notes_count>
+    <activities/>
+    <pic_square>http://profile.ak.facebook.com/v228/26/88/q562517137_624.jpg</pic_square>
+    <movies/>
+    <has_added_app>1</has_added_app>
+    <education_history list="true">
+      <education_info>
+        <name>Washington</name>
+        <year>2008</year>
+        <concentrations list="true"/>
+        <degree/>
+      </education_info>
+    </education_history>
+    <birthday>April 19, 1986</birthday>
+    <first_name>Richard</first_name>
+    <meeting_for list="true"/>
+    <last_name>Jordan</last_name>
+    <interests/>
+    <current_location>
+      <zip/>
+    </current_location>
+    <pic>http://profile.ak.facebook.com/v228/26/88/s562517137_624.jpg</pic>
+    <books/>
+    <affiliations list="true">
+      <affiliation>
+        <nid>16777324</nid>
+        <name>Washington</name>
+        <type>college</type>
+        <status>Undergrad</status>
+        <year>2008</year>
+      </affiliation>
+      <affiliation>
+        <nid>67109125</nid>
+        <name>Bellevue, WA</name>
+        <type>region</type>
+        <status/>
+        <year>0</year>
+      </affiliation>
+    </affiliations>
+  </user>
+</users_getInfo_response>
+  [4;35;1mUser Load (0.000762)[0m   [0mSELECT * FROM users WHERE (users."fb_id" = '562517137') LIMIT 1[0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering users/see_pictures
+  [4;36;1mPicture Load (0.000487)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 431 AND (pictures.user_id = 45)) [0m
+  [4;35;1mUser Load (0.000923)[0m   [0mSELECT * FROM users WHERE (users."id" = 45) [0m
+Completed in 0.36294 (2 reqs/sec) | Rendering: 0.02197 (6%) | DB: 0.00217 (0%) | 200 OK [http://db240296.fb.joyent.us/users/see_pictures]
+
+
+Processing UsersController#see_privacy (for 204.15.23.170 at 2008-06-09 22:10:41) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049441.8328", "fb_sig"=>"5109ae444c7f9dbdbec8981a2ca2b055", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"see_privacy", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"users", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;36;1mUser Load (0.000762)[0m   [0;1mSELECT * FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering users/see_privacy
+  [4;35;1mPicture Load (0.000445)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 431 AND (pictures.user_id = 45)) [0m
+  [4;36;1mUser Load (0.000542)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 45) [0m
+Completed in 0.50221 (1 reqs/sec) | Rendering: 0.02374 (4%) | DB: 0.00175 (0%) | 200 OK [http://db240296.fb.joyent.us/users/see_privacy]
+
+
+Processing UsersController#see_networks (for 204.15.23.169 at 2008-06-09 22:10:44) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049444.6748", "fb_sig"=>"2aaea4c0679dcfefd1b3c8308425da9f", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"see_networks", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"users", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;35;1mUser Load (0.000660)[0m   [0mSELECT * FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+ Posting to http://api.facebook.com/restserver.php {:uids=>562517137, :sig=>"6b10f8b470bc82914870da156bf676ac", :call_id=>"1213049444.82106", :v=>"1.0", :method=>"facebook.users.getInfo", :fields=>"status,political,pic_small,name,quotes,is_app_user,tv,profile_update_time,meeting_sex,hs_info,timezone,relationship_status,hometown_location,about_me,wall_count,significant_other_id,pic_big,music,uid,work_history,sex,religion,notes_count,activities,pic_square,movies,has_added_app,education_history,birthday,first_name,meeting_for,last_name,interests,current_location,pic,books,affiliations", :api_key=>"68e0325141a343219ee5d9fdb6e1ad75", :session_key=>"fb2eceb34ee6de0da3a6e7dc-562517137"} 
+ Return value <?xml version="1.0" encoding="UTF-8"?>
+<users_getInfo_response xmlns="http://api.facebook.com/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://api.facebook.com/1.0/ http://api.facebook.com/1.0/facebook.xsd" list="true">
+  <user>
+    <uid>562517137</uid>
+    <status>
+      <message/>
+      <time>0</time>
+    </status>
+    <political/>
+    <pic_small>http://profile.ak.facebook.com/v228/26/88/t562517137_624.jpg</pic_small>
+    <name>Richard Jordan</name>
+    <quotes/>
+    <is_app_user>1</is_app_user>
+    <tv/>
+    <profile_update_time>0</profile_update_time>
+    <meeting_sex list="true"/>
+    <hs_info>
+      <hs1_name/>
+      <hs2_name/>
+      <hs1_id>0</hs1_id>
+      <hs2_id>0</hs2_id>
+    </hs_info>
+    <timezone>-7</timezone>
+    <relationship_status/>
+    <hometown_location>
+      <zip/>
+    </hometown_location>
+    <about_me/>
+    <wall_count>2</wall_count>
+    <significant_other_id/>
+    <pic_big>http://profile.ak.facebook.com/v228/26/88/n562517137_624.jpg</pic_big>
+    <music/>
+    <uid>562517137</uid>
+    <work_history list="true"/>
+    <sex/>
+    <religion/>
+    <notes_count>0</notes_count>
+    <activities/>
+    <pic_square>http://profile.ak.facebook.com/v228/26/88/q562517137_624.jpg</pic_square>
+    <movies/>
+    <has_added_app>1</has_added_app>
+    <education_history list="true">
+      <education_info>
+        <name>Washington</name>
+        <year>2008</year>
+        <concentrations list="true"/>
+        <degree/>
+      </education_info>
+    </education_history>
+    <birthday>April 19, 1986</birthday>
+    <first_name>Richard</first_name>
+    <meeting_for list="true"/>
+    <last_name>Jordan</last_name>
+    <interests/>
+    <current_location>
+      <zip/>
+    </current_location>
+    <pic>http://profile.ak.facebook.com/v228/26/88/s562517137_624.jpg</pic>
+    <books/>
+    <affiliations list="true">
+      <affiliation>
+        <nid>16777324</nid>
+        <name>Washington</name>
+        <type>college</type>
+        <status>Undergrad</status>
+        <year>2008</year>
+      </affiliation>
+      <affiliation>
+        <nid>67109125</nid>
+        <name>Bellevue, WA</name>
+        <type>region</type>
+        <status/>
+        <year>0</year>
+      </affiliation>
+    </affiliations>
+  </user>
+</users_getInfo_response>
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering users/see_networks
+  [4;36;1mNetwork Load (0.000461)[0m   [0;1mSELECT networks.id FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) AND (networks."fb_id" = '16777324') LIMIT 1[0m
+  [4;35;1mNetwork Load (0.000282)[0m   [0mSELECT networks.id FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) AND (networks."fb_id" = '67109125') LIMIT 1[0m
+Completed in 0.28192 (3 reqs/sec) | Rendering: 0.01417 (5%) | DB: 0.00140 (0%) | 200 OK [http://db240296.fb.joyent.us/users/see_networks]
+
+
+Processing AdsController#adsense (for 24.16.105.220 at 2008-06-09 22:10:46) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049445.1259", "fb_sig_in_iframe"=>"1", "fb_sig"=>"4d561de890153a03153efeb8a071b86c", "action"=>"adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00461 (216 reqs/sec) | Rendering: 0.00007 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/adsense?fb_sig_in_iframe=1&fb_sig_time=1213049445.1259&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=4d561de890153a03153efeb8a071b86c]
+
+
+Processing UsersController#see_privacy (for 204.15.23.171 at 2008-06-09 22:10:47) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049447.5127", "fb_sig"=>"b34daa0bd39e5489dfe7057a072bf706", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"see_privacy", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"users", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;36;1mUser Load (0.000725)[0m   [0;1mSELECT * FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering users/see_privacy
+  [4;35;1mPicture Load (0.000449)[0m   [0mSELECT * FROM pictures WHERE (pictures."id" = 431 AND (pictures.user_id = 45)) [0m
+  [4;36;1mUser Load (0.000628)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 45) [0m
+Completed in 0.03805 (26 reqs/sec) | Rendering: 0.01978 (51%) | DB: 0.00180 (4%) | 200 OK [http://db240296.fb.joyent.us/users/see_privacy]
+
+
+Processing AdsController#adsense (for 24.16.105.220 at 2008-06-09 22:10:48) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049447.662", "fb_sig_in_iframe"=>"1", "fb_sig"=>"0ea4b99f5f3fc5c3275d513e8711f135", "action"=>"adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00466 (214 reqs/sec) | Rendering: 0.00009 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/adsense?fb_sig_in_iframe=1&fb_sig_time=1213049447.662&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=0ea4b99f5f3fc5c3275d513e8711f135]
+
+
+Processing UsersController#see_friends (for 204.15.23.168 at 2008-06-09 22:11:03) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049463.5827", "fb_sig"=>"4b6bb8d8541cc11f9b81cc6c8a71c12d", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"see_friends", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"users", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+ Posting to http://api.facebook.com/restserver.php {:sig=>"dac300f76ab947d3bf3d716a70242c0b", :call_id=>"1213049463.66201", :v=>"1.0", :method=>"facebook.friends.getAppUsers", :api_key=>"68e0325141a343219ee5d9fdb6e1ad75", :session_key=>"fb2eceb34ee6de0da3a6e7dc-562517137"} 
+ Return value <?xml version="1.0" encoding="UTF-8"?>
+<friends_getAppUsers_response xmlns="http://api.facebook.com/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://api.facebook.com/1.0/ http://api.facebook.com/1.0/facebook.xsd" list="true">
+  <uid>1179772310</uid>
+</friends_getAppUsers_response>
+  [4;35;1mPicture Load (0.002063)[0m   [0mSELECT * FROM pictures WHERE (pictures."fb_id" IN (5213499,10701333,10725438,10728457,10730112,575171012,1179772310)) [0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering users/see_friends
+  [4;36;1mUser Load (0.000610)[0m   [0;1mSELECT users.id FROM users WHERE (users."fb_id" = 1179772310) LIMIT 1[0m
+  [4;35;1mUser Load (0.000691)[0m   [0mSELECT * FROM users WHERE (users."fb_id" = 1179772310) LIMIT 1[0m
+  [4;36;1mPicture Load (0.000394)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 80 AND (pictures.user_id = 36)) [0m
+  [4;35;1mUser Load (0.000631)[0m   [0mSELECT * FROM users WHERE (users."id" = 36) [0m
+  [4;36;1mUser Load (0.000613)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 8) [0m
+  [4;35;1mUser Load (0.000582)[0m   [0mSELECT * FROM users WHERE (users."id" = 14) [0m
+  [4;36;1mUser Load (0.000542)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 19) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 36) [0m
+Completed in 0.21060 (4 reqs/sec) | Rendering: 0.10203 (48%) | DB: 0.00613 (2%) | 200 OK [http://db240296.fb.joyent.us/users/see_friends]
+
+
+Processing AdsController#adsense (for 24.16.105.220 at 2008-06-09 22:11:05) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049463.9357", "fb_sig_in_iframe"=>"1", "fb_sig"=>"b489af6aa92b0ada345db0465230e409", "action"=>"adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00554 (180 reqs/sec) | Rendering: 0.00012 (2%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/adsense?fb_sig_in_iframe=1&fb_sig_time=1213049463.9357&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=b489af6aa92b0ada345db0465230e409]
+
+
+Processing UsersController#see_networks (for 204.15.23.168 at 2008-06-09 22:11:08) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049468.3537", "fb_sig"=>"c4e5e79a06d5f7989ebc69b22c8e6404", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"see_networks", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"users", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;36;1mUser Load (0.000711)[0m   [0;1mSELECT * FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+ Posting to http://api.facebook.com/restserver.php {:uids=>562517137, :sig=>"b911df8596beae1b4969cc04aa8b3df3", :call_id=>"1213049468.43106", :v=>"1.0", :method=>"facebook.users.getInfo", :fields=>"status,political,pic_small,name,quotes,is_app_user,tv,profile_update_time,meeting_sex,hs_info,timezone,relationship_status,hometown_location,about_me,wall_count,significant_other_id,pic_big,music,uid,work_history,sex,religion,notes_count,activities,pic_square,movies,has_added_app,education_history,birthday,first_name,meeting_for,last_name,interests,current_location,pic,books,affiliations", :api_key=>"68e0325141a343219ee5d9fdb6e1ad75", :session_key=>"fb2eceb34ee6de0da3a6e7dc-562517137"} 
+ Return value <?xml version="1.0" encoding="UTF-8"?>
+<users_getInfo_response xmlns="http://api.facebook.com/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://api.facebook.com/1.0/ http://api.facebook.com/1.0/facebook.xsd" list="true">
+  <user>
+    <uid>562517137</uid>
+    <status>
+      <message/>
+      <time>0</time>
+    </status>
+    <political/>
+    <pic_small>http://profile.ak.facebook.com/v228/26/88/t562517137_624.jpg</pic_small>
+    <name>Richard Jordan</name>
+    <quotes/>
+    <is_app_user>1</is_app_user>
+    <tv/>
+    <profile_update_time>0</profile_update_time>
+    <meeting_sex list="true"/>
+    <hs_info>
+      <hs1_name/>
+      <hs2_name/>
+      <hs1_id>0</hs1_id>
+      <hs2_id>0</hs2_id>
+    </hs_info>
+    <timezone>-7</timezone>
+    <relationship_status/>
+    <hometown_location>
+      <zip/>
+    </hometown_location>
+    <about_me/>
+    <wall_count>2</wall_count>
+    <significant_other_id/>
+    <pic_big>http://profile.ak.facebook.com/v228/26/88/n562517137_624.jpg</pic_big>
+    <music/>
+    <uid>562517137</uid>
+    <work_history list="true"/>
+    <sex/>
+    <religion/>
+    <notes_count>0</notes_count>
+    <activities/>
+    <pic_square>http://profile.ak.facebook.com/v228/26/88/q562517137_624.jpg</pic_square>
+    <movies/>
+    <has_added_app>1</has_added_app>
+    <education_history list="true">
+      <education_info>
+        <name>Washington</name>
+        <year>2008</year>
+        <concentrations list="true"/>
+        <degree/>
+      </education_info>
+    </education_history>
+    <birthday>April 19, 1986</birthday>
+    <first_name>Richard</first_name>
+    <meeting_for list="true"/>
+    <last_name>Jordan</last_name>
+    <interests/>
+    <current_location>
+      <zip/>
+    </current_location>
+    <pic>http://profile.ak.facebook.com/v228/26/88/s562517137_624.jpg</pic>
+    <books/>
+    <affiliations list="true">
+      <affiliation>
+        <nid>16777324</nid>
+        <name>Washington</name>
+        <type>college</type>
+        <status>Undergrad</status>
+        <year>2008</year>
+      </affiliation>
+      <affiliation>
+        <nid>67109125</nid>
+        <name>Bellevue, WA</name>
+        <type>region</type>
+        <status/>
+        <year>0</year>
+      </affiliation>
+    </affiliations>
+  </user>
+</users_getInfo_response>
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering users/see_networks
+  [4;35;1mNetwork Load (0.000497)[0m   [0mSELECT networks.id FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) AND (networks."fb_id" = '16777324') LIMIT 1[0m
+  [4;36;1mNetwork Load (0.000294)[0m   [0;1mSELECT networks.id FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) AND (networks."fb_id" = '67109125') LIMIT 1[0m
+Completed in 0.19744 (5 reqs/sec) | Rendering: 0.01232 (6%) | DB: 0.00150 (0%) | 200 OK [http://db240296.fb.joyent.us/users/see_networks]
+
+
+Processing UsersController#see_matches (for 204.15.23.171 at 2008-06-09 22:11:16) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049476.2808", "fb_sig"=>"df62c5667e14d4c63a9c4c8bf00c4914", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"see_matches", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"users", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;35;1mUser Load (0.000764)[0m   [0mSELECT * FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+  [4;36;1mPicture Load (0.000468)[0m   [0;1mSELECT * FROM pictures WHERE (pictures."id" = 431 AND (pictures.user_id = 45)) [0m
+  [4;35;1mNetwork Load (0.000322)[0m   [0mSELECT networks.id FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) AND (networks."id" IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT networks.id FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) AND (networks."id" IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.000854)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mCouple Load (0.000662)[0m   [0;1mSELECT * FROM couples WHERE picture_id1=431 OR picture_id2=431[0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering users/see_matches
+  [4;35;1mNetwork Load (0.000639)[0m   [0mSELECT * FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) [0m
+Completed in 0.05236 (19 reqs/sec) | Rendering: 0.00879 (16%) | DB: 0.00371 (7%) | 200 OK [http://db240296.fb.joyent.us/users/see_matches]
+
+
+Processing AdsController#adsense (for 24.16.105.220 at 2008-06-09 22:11:17) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049476.4691", "fb_sig_in_iframe"=>"1", "fb_sig"=>"962bfc941b3d8f5a5aeb33a33525d829", "action"=>"adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00450 (222 reqs/sec) | Rendering: 0.00005 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/adsense?fb_sig_in_iframe=1&fb_sig_time=1213049476.4691&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=962bfc941b3d8f5a5aeb33a33525d829]
+
+
+Processing CoupleRaterController#browse (for 204.15.23.169 at 2008-06-09 22:11:21) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049481.4793", "fb_sig"=>"9c608c6a3f450ec8128c092da68ce1d2", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"browse", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"couple_rater", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;36;1mUser Load (0.000676)[0m   [0;1mSELECT * FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+  [4;35;1mPrompt Load (0.000676)[0m   [0mSELECT * FROM prompts ORDER BY RANDOM() LIMIT 1[0m
+  [4;36;1mPicture Load (0.000462)[0m   [0;1mSELECT pictures.id FROM pictures WHERE (pictures."fb_id" = 575171012) LIMIT 1[0m
+  [4;35;1mPicture Load (0.000413)[0m   [0mSELECT * FROM pictures WHERE (pictures."fb_id" = 575171012) LIMIT 1[0m
+  [4;36;1mPicture Load (0.000239)[0m   [0;1mSELECT pictures.id FROM pictures WHERE (pictures."fb_id" = 10730112) LIMIT 1[0m
+  [4;35;1mPicture Load (0.000327)[0m   [0mSELECT * FROM pictures WHERE (pictures."fb_id" = 10730112) LIMIT 1[0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering couple_rater/browse
+  [4;36;1mNetwork Load (0.000619)[0m   [0;1mSELECT * FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) [0m
+  [4;35;1mUser Load (0.000669)[0m   [0mSELECT * FROM users WHERE (users."id" = 14) [0m
+Completed in 0.05549 (18 reqs/sec) | Rendering: 0.01566 (28%) | DB: 0.00408 (7%) | 200 OK [http://db240296.fb.joyent.us/couple_rater/browse]
+
+
+Processing AdsController#sidebar_adsense (for 24.16.105.220 at 2008-06-09 22:11:22) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049481.6462", "fb_sig_in_iframe"=>"1", "fb_sig"=>"fe2beb20f28b4f34cb08c2c4a3291edf", "action"=>"sidebar_adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00452 (221 reqs/sec) | Rendering: 0.00006 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/sidebar_adsense?fb_sig_in_iframe=1&fb_sig_time=1213049481.6462&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=fe2beb20f28b4f34cb08c2c4a3291edf]
+
+
+Processing AdsController#adsense (for 24.16.105.220 at 2008-06-09 22:11:22) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049481.6638", "fb_sig_in_iframe"=>"1", "fb_sig"=>"caad4668e491cb5ffa9ff0528924eb71", "action"=>"adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00441 (227 reqs/sec) | Rendering: 0.00006 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/adsense?fb_sig_in_iframe=1&fb_sig_time=1213049481.6638&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=caad4668e491cb5ffa9ff0528924eb71]
+
+
+Processing CoupleRaterController#invite_friends (for 204.15.23.168 at 2008-06-09 22:11:25) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049484.9571", "fb_sig"=>"dcd5d9f2d24ac9096e401d25bf0af82c", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"invite_friends", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"couple_rater", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+ Posting to http://api.facebook.com/restserver.php {:sig=>"b6563115ee1067eff59e68fc7e6919c6", :call_id=>"1213049485.04199", :v=>"1.0", :method=>"facebook.friends.getAppUsers", :api_key=>"68e0325141a343219ee5d9fdb6e1ad75", :session_key=>"fb2eceb34ee6de0da3a6e7dc-562517137"} 
+ Return value <?xml version="1.0" encoding="UTF-8"?>
+<friends_getAppUsers_response xmlns="http://api.facebook.com/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://api.facebook.com/1.0/ http://api.facebook.com/1.0/facebook.xsd" list="true">
+  <uid>1179772310</uid>
+</friends_getAppUsers_response>
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering couple_rater/invite_friends
+Completed in 0.10001 (9 reqs/sec) | Rendering: 0.00596 (5%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/couple_rater/invite_friends]
+
+
+Processing AdsController#adsense (for 24.16.105.220 at 2008-06-09 22:11:26) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049485.37", "fb_sig_in_iframe"=>"1", "fb_sig"=>"6ff6c5020d933c80ebaa0154bf4680eb", "action"=>"adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00480 (208 reqs/sec) | Rendering: 0.00007 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/adsense?fb_sig_in_iframe=1&fb_sig_time=1213049485.37&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=6ff6c5020d933c80ebaa0154bf4680eb]
+
+
+Processing CoupleRaterController#browse (for 204.15.23.169 at 2008-06-09 22:12:32) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049552.7185", "fb_sig"=>"469b8ff4fde8d91e94aa2afb3508b601", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"browse", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"couple_rater", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;36;1mUser Load (0.000744)[0m   [0;1mSELECT * FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+  [4;35;1mPrompt Load (0.001095)[0m   [0mSELECT * FROM prompts ORDER BY RANDOM() LIMIT 1[0m
+  [4;36;1mPicture Load (0.000487)[0m   [0;1mSELECT pictures.id FROM pictures WHERE (pictures."fb_id" = 5213499) LIMIT 1[0m
+  [4;35;1mPicture Load (0.000389)[0m   [0mSELECT * FROM pictures WHERE (pictures."fb_id" = 5213499) LIMIT 1[0m
+  [4;36;1mPicture Load (0.000244)[0m   [0;1mSELECT pictures.id FROM pictures WHERE (pictures."fb_id" = 10725438) LIMIT 1[0m
+  [4;35;1mPicture Load (0.000332)[0m   [0mSELECT * FROM pictures WHERE (pictures."fb_id" = 10725438) LIMIT 1[0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering couple_rater/browse
+  [4;36;1mNetwork Load (0.001334)[0m   [0;1mSELECT * FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) [0m
+  [4;35;1mUser Load (0.001033)[0m   [0mSELECT * FROM users WHERE (users."id" = 8) [0m
+Completed in 0.15285 (6 reqs/sec) | Rendering: 0.03725 (24%) | DB: 0.00566 (3%) | 200 OK [http://db240296.fb.joyent.us/couple_rater/browse]
+
+
+Processing AdsController#sidebar_adsense (for 24.16.105.220 at 2008-06-09 22:12:34) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049553.1027", "fb_sig_in_iframe"=>"1", "fb_sig"=>"85503f2a221c7f09d4a9875fe24126c5", "action"=>"sidebar_adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00535 (186 reqs/sec) | Rendering: 0.00008 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/sidebar_adsense?fb_sig_in_iframe=1&fb_sig_time=1213049553.1027&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=85503f2a221c7f09d4a9875fe24126c5]
+
+
+Processing CoupleRaterController#browse (for 204.15.23.169 at 2008-06-09 22:13:51) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049631.5008", "fb_sig"=>"eb36432126425afbc3465634505189aa", "_method"=>"GET", "fb_sig_locale"=>"en_US", "action"=>"browse", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "fb_sig_position_fix"=>"1", "fb_sig_in_canvas"=>"1", "fb_sig_request_method"=>"GET", "controller"=>"couple_rater", "fb_sig_expires"=>"0", "fb_sig_friends"=>"5213499,10701333,10725438,10728457,10730112,575171012,1179772310", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+  [4;36;1mUser Load (0.000687)[0m   [0;1mSELECT * FROM users WHERE (users."fb_id" = 562517137) LIMIT 1[0m
+  [4;35;1mPrompt Load (0.000662)[0m   [0mSELECT * FROM prompts ORDER BY RANDOM() LIMIT 1[0m
+  [4;36;1mPicture Load (0.000390)[0m   [0;1mSELECT pictures.id FROM pictures WHERE (pictures."fb_id" = 5213499) LIMIT 1[0m
+  [4;35;1mPicture Load (0.000359)[0m   [0mSELECT * FROM pictures WHERE (pictures."fb_id" = 5213499) LIMIT 1[0m
+  [4;36;1mPicture Load (0.000431)[0m   [0;1mSELECT pictures.id FROM pictures WHERE (pictures."fb_id" = 1179772310) LIMIT 1[0m
+  [4;35;1mPicture Load (0.000417)[0m   [0mSELECT * FROM pictures WHERE (pictures."fb_id" = 1179772310) LIMIT 1[0m
+Rendering template within layouts/couple_rater.fbml.erb
+Rendering couple_rater/browse
+  [4;36;1mNetwork Load (0.000721)[0m   [0;1mSELECT * FROM networks INNER JOIN networks_users ON networks.id = networks_users.network_id WHERE (networks_users.user_id = 45 ) [0m
+  [4;35;1mUser Load (0.000678)[0m   [0mSELECT * FROM users WHERE (users."id" = 36) [0m
+Completed in 0.05593 (17 reqs/sec) | Rendering: 0.01607 (28%) | DB: 0.00434 (7%) | 200 OK [http://db240296.fb.joyent.us/couple_rater/browse]
+
+
+Processing AdsController#sidebar_adsense (for 24.16.105.220 at 2008-06-09 22:13:56) [GET]
+  Session ID: fb2eceb34ee6de0da3a6e7dc-562517137
+  Parameters: {"fb_sig_time"=>"1213049631.9782", "fb_sig_in_iframe"=>"1", "fb_sig"=>"8f5e30a2e6d66bda01ec084b8c9e627a", "action"=>"sidebar_adsense", "fb_sig_session_key"=>"fb2eceb34ee6de0da3a6e7dc-562517137", "controller"=>"ads", "fb_sig_expires"=>"0", "fb_sig_added"=>"1", "fb_sig_api_key"=>"68e0325141a343219ee5d9fdb6e1ad75", "fb_sig_profile_update_time"=>"1211485801", "fb_sig_user"=>"562517137"}
+Completed in 0.00487 (205 reqs/sec) | Rendering: 0.00005 (1%) | DB: 0.00000 (0%) | 200 OK [http://db240296.fb.joyent.us/ads/sidebar_adsense?fb_sig_in_iframe=1&fb_sig_time=1213049631.9782&fb_sig_added=1&fb_sig_user=562517137&fb_sig_profile_update_time=1211485801&fb_sig_session_key=fb2eceb34ee6de0da3a6e7dc-562517137&fb_sig_expires=0&fb_sig_api_key=68e0325141a343219ee5d9fdb6e1ad75&fb_sig=8f5e30a2e6d66bda01ec084b8c9e627a]

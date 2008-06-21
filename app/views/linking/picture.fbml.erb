@@ -1,0 +1,67 @@
+<%=fb_picture(@picture, :size=>'normal') %>
+
+<% user = @picture.user_or_fake_user %>
+<div style="text-align:center;float:right;padding:10px;">
+<div><%= link_to "Rate yourself with "+ fb_name(user.fb_id), {:controller=>"linking", :action =>"rate_chosen_couple", :chosen_picture_id1=>@cr_user.picture.id, :chosen_picture_id2=>@picture.id, :network=>"chosen"} %></div>
+<% if(@picture.user?) %>
+
+<div><%= link_to "See all ratings by "+ fb_name(@picture.user_or_fake_user.fb_id), {:controller=>"linking", :action =>"user_ratings", :user_id=>user.id} %></div>
+<% if(@picture.user? and user.non_friends_can_see_my_matches) %>
+   <div><%= link_to "See "+fb_pronoun(@picture.user.fb_id, :possessive=>true) + " matches", {:controller=>"linking", :action =>"see_matches_of_chosen_user", :chosen_user_id=>user.id} %></div>
+<% elsif(@picture.user? and user.friends_can_see_my_matches) %>
+   <fb:if-is-friends-with-viewer uid="<%=@picture.user.fb_id%>">
+   <div><%= link_to "See "+fb_pronoun(@picture.user.fb_id, :possessive=>true) + " matches", {:controller=>"linking", :action =>"see_matches_of_chosen_user", :chosen_user_id=>user.id} %></div>
+   </fb:if-is-friends-with-viewer>
+<% else %>
+<%end %>
+
+   	<div><a href="#" clicktoshowdialog="poke">Poke <%=fb_pronoun(user.fb_id,:objective=>true)%></a></div>
+   	<div><a href="#" clicktoshowdialog="like">Tell <%=fb_name(user.fb_id)%> you like 
+	<%= fb_pronoun(user.fb_id, :objective=>true) %></a></div>
+   	<div><a href="#" clicktoshowdialog="secret">Secretly mark that you like
+		 <%=fb_name(user.fb_id)%></a></div>
+<% if(!user.networks.nil? || []) %>
+<h3>find me in networks</h3>
+<% for net in user.networks do %>
+  <li><%= link_to net.network, {:controller=>"linking", :action=>'user_network',:network_id=>net.id} %></li>
+<% end %>
+<% end %>
+<h3>gender</h3>
+<%if(user.gender)%> <li>boy</li> <%else%> <li>girl</li> <%end%>
+
+<%end%>
+</div>
+
+
+<% if(@picture.user?) %>
+<!--- Popup Dialogs -->
+<fb:dialog id="poke" cancel_button=1>
+<fb:dialog-title>Send a notification</fb:dialog-title>
+<fb:dialog-content>
+        <form id="my_form">Poke <%=fb_name(user.fb_id)%>?</form>
+</fb:dialog-content>
+<fb:dialog-button type="button" value="Yes" 	
+href="<%=url_for(:controller=>"messaging",:action=>"poke",:who=>user.fb_id)%>" />
+</fb:dialog>
+
+<fb:dialog id="like" cancel_button=1>
+<fb:dialog-title>Send a notification</fb:dialog-title>
+<fb:dialog-content>
+        <form id="my_form">Tell <%=fb_name(user.fb_id)%> you like 
+				<%=fb_pronoun(user.fb_id, :objective=>true)%> ?</form>
+</fb:dialog-content>
+<fb:dialog-button type="button" value="Yes" 
+href="<%=url_for(:controller=>"messaging",:action=>"openly_like",:who=>user.fb_id)%>" />
+</fb:dialog>
+
+<fb:dialog id="secret" cancel_button=1>
+<fb:dialog-title>Set Secret</fb:dialog-title>
+<fb:dialog-content>
+        <form id="my_form">We wont tell <%=fb_name(user.fb_id)%> unless 
+		<%=fb_name(user.fb_id, :firstnameonly=>"true")%> secretly likes you.</form>
+</fb:dialog-content>
+<fb:dialog-button type="button" value="Save Secret" 
+href="<%=url_for(:controller=>"linking",:action=>"set_secret",:who=>user.id)%>" />
+</fb:dialog>
+<% end %>
+

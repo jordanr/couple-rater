@@ -1,0 +1,54 @@
+couple rater
+
+
+Description:
+
+Couple Rater is a facebook application developed using the facebooker gem.
+The core of the application allows facebook members to rate 
+on a scale of one to ten a random couple of other members of facebook. 
+
+
+Features:
+
+{ CoupleRater controller and views }
+* Get a random couple.
+* Rate the couple
+* See the overall rating of the couple after rating it.
+* Narrow by gender
+* Narrow by geo network
+* Narrow by friends
+* Eliminate or allow question marks
+* Show global statistics called "Couplistics"
+
+{ Users controller and views }
+* See how people rated you
+* Sort those "matches" by gender
+* Sort those "matches" by friends
+* Sort those "matches" by relationship (both like each other, you like them,...)
+* Sort those "matches" by network
+* Set your relationship (whether you like a person or secretly like them)
+* Set privacy and preference settings
+* See your friends and their ratings
+* Change what networks you show in
+* Change your picture
+
+{ Messaging controller }
+* Send poke notifications
+* Send like notificatoins
+* Publish templatized new feed stories and relationship changes
+
+{ cron job-rake task for profile:update }
+* Load profile box with recent couplings of a user.
+
+{ extras/attachment/ }
+* Allow users to attach pictures of different types of couples on friends walls and such. (groom and bride, hot couple, two kittens, two puppies, ...)
+
+
+Acknowledgements:
+
+We would like to thank the facebooker guys for the
+gem as well as their excellent tutorial app, our
+teacher and tas at the University of Washington, our
+class mate customers who gave us great feedback, and
+all our friends, friends of friends, and beyound who
+added our application.  We can't thank you all enough.

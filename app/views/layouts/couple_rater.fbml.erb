@@ -1,0 +1,47 @@
+<!-- This layout is automatically included at the top of all of our views.-->
+<%= fb_css %>
+<%= cr_css %>
+<% if flash[:notice] %> <%= flash[:notice] %> <% end %>
+
+<% fb_dashboard do %>
+  <!--  <%= fb_action 'my friends', url_for(:controller=>'users',:action=>'see_friends') %> -->
+    <%= fb_action 'edit picture', url_for(:controller=>'users',:action=>'see_pictures') %>
+    <%= fb_action 'edit privacy' , url_for(:controller=>'users',:action=>'see_privacy') %>
+    <%= fb_action 'edit networks' , url_for(:controller=>'users',:action=>'see_networks') %>  
+    <%= fb_help 'Feedback', "http://www.facebook.com/apps/application.php?id=33015620541" %>
+    <%= fb_create_button 'Upload a Photo', 'http://www.facebook.com/editprofile.php?picture' %>
+<% end %>
+
+<fb:tabs>
+  <fb:tab-item href='<%=url_for(:controller=>'couple_rater',:action=>'browse')%>' 
+	title='Rate!' selected='<%=(params[:action]=="browse").to_s%>' />
+  <fb:tab-item href='<%=url_for(:controller=>'couple_rater',:action=>'see_globals')%>' 
+	title= "Couplistics" selected='<%=(params[:action]=="see_globals").to_s%>' />
+  <fb:tab-item href='<%=url_for(:controller=>'users',:action=>'see_matches')%>' 
+	title='my matches' selected='<%=(params[:action]=="see_matches").to_s%>'/>
+  <fb:tab-item href='<%=url_for(:controller=>'users',:action=>'see_friends')%>' 
+	title='my friends' selected='<%=(params[:action]=="see_friends").to_s%>'/>
+
+  <fb:tab-item href='<%=url_for(:controller=>'couple_rater',:action=>'invite_friends')%>' 
+	title='Invite Your Friends!' selected='<%=(params[:action]=="invite_friends").to_s%>' align='right' />
+</fb:tabs>
+
+<!-- View specific code will go below here -->
+<%=@content_for_layout%>
+<!-- And Above Here -->
+
+<!-- Footer -->
+<!--<% fb_if_is_user("1200798477") do %>
+    <%= fb_comments( "couplerater", true, true, 20,:showform => true, :title => "Comment Section" ) %>
+  <% fb_else do %>
+    <%= fb_comments( "couplerater", true, false, 5,:send_notification_uid => "1200798477", :showform => true, :title => "Comment Section" ) %>
+  <% end %>
+<% end %>-->
+
+<!-- Google analytics -->
+<fb:google-analytics uacct="UA-4364429-1" />
+<!-- Social Media -->
+<fb:iframe src='http://adtracker.socialmedia.com/track/' width='1' height='1' />
+
+<!-- Advertising -->
+<%= rotate_ad() %>

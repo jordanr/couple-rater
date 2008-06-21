@@ -1,0 +1,37 @@
+<%if( (@friends_with_app.nil?|| @friends_with_app.length==0) and (@friends_rated == []) ) %>
+<% text = link_to "Invite Some?", {:controller=>'couple_rater',:action=>'invite_friends'} %>
+<%= fb_explanation("Sorry, none of your friends have Couple Rater", text) %>
+<% else %>
+<div>
+These are your friends who have added Couple Rater.
+</div>
+<div>
+<%fb_table do %>
+ <% @friends_with_app.each_slice(4) { |friend_arr| %>
+  <%fb_tr do %>
+      <% for friend in friend_arr %>
+        <% fb_td do %>
+	 <% if(User.exists?(:fb_id=>friend.to_i)) %>
+          <%=fb_picture(User.find_by_fb_id(friend.to_i).picture, :size=>"small")%>
+	 <% end %>
+        <% end %>
+      <% end %>
+  <% end %>
+ <% } %>
+<%end%>
+</div>
+These are your friends who have been rated here.
+<div>
+<%fb_table do %>
+ <% @friends_rated.each_slice(4) { |friend_arr| %>
+  <%fb_tr do %>
+      <% for friend in friend_arr %>
+        <% fb_td do %>
+          <%=fb_picture(friend, :size=>"small")%>
+	<% end %>
+      <% end %>
+  <% end %>
+ <% } %>
+<%end%>
+</div>
+<% end %>

@@ -1,0 +1,14 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fb_id: 1
+  network: test1
+
+two:
+  fb_id: 2
+  network: test2
+
+three:
+  fb_id: 3
+  network: test3
+

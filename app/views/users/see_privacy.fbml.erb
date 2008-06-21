@@ -1,0 +1,21 @@
+<h1>Current Picture</h1>
+<%=fb_picture(@user.picture, :size=>'normal')%>
+
+<div style="text-align:center;">
+<h2> Your Preferences</h2>
+<% facebook_form_for(:user,@user,:url=>url_for(:controller=>'users',:action=>'change_privacy'), :width=>200, :labelwidth=>200 ) do |f| %>
+   <%= f.text_field :first_name, :label => "First Name" %>
+   <%= f.text_field :last_name, :label => "Last Name" %>
+   <%= f.radio_button :gender, true, :label=>"Male" %>
+   <%= f.radio_button :gender, false, :label=>"Female" %>
+   <%= f.check_box :with_men, :label=>"With Men" %>
+   <%= f.check_box :with_women, :label=>"With Women" %>
+   <%= f.check_box :non_friends_can_see_my_matches, :label=>"Friends can see my matches." %>
+   <%= f.check_box :non_friends_can_see_my_matches, :label=>"Non-friends can see my matches" %>
+`  <%= f.check_box :see_question_marks, :label=>"Allow question marks on Rate! (if unchecked, you will not see on Rate! some valid couples)" %>
+     <fb:editor-buttonset>
+          <fb:editor-button value="Save Changes"/>
+          <fb:editor-cancel />
+     </fb:editor-buttonset>
+ <% end %>
+</div>

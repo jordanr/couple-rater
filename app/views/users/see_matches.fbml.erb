@@ -1,0 +1,87 @@
+<!--------------------
+<p>  Pre : From couple rater controller, the array @matches comes with the given
+	   network, gender, and status filtering settings.
+</p>
+<p>  Post: Sorts the arrays by overall average rating.  The pictures of the
+  	   current facebook user are ignored.  Renders only the pictures of the user's
+	   matches.
+</p>>-->
+<!------------------------ Filter Code Below------------------------>
+<% if(!@chosen)%>
+<fb:editor action='<%=url_for(:controller=>"users",:action=>"filter_matches")%>' width=200 labelwidth=20>
+   <fb:editor-custom label="Show Me">
+        <select name="gender">
+            <option value="all" <%if(@gender=="all")%> selected="selected" <%end%>> All </option>
+            <option value="boys" <%if(@gender=="boys")%> selected="selected" <%end%>> Boys </option>
+            <option value="girls" <%if(@gender=="girls")%> selected="selected" <%end%>>Girls </option>
+        </select>
+    </fb:editor-custom>
+
+    <fb:editor-custom label="From">
+     <select name="network">
+       <option value="all" <%if(@network=="all")%> selected="selected" <%end%> > All </option>
+       <% for net in @nets.sort %>
+         <option value="<%=net.id %>" <%if(@network==net.id.to_s)%> selected="selected" <%end%> ><%=net.network %></option>
+        <%end%>
+     </select>
+    </fb:editor-custom>
+   <fb:editor-custom label="And">
+        <select name="friendship">
+            <option value="all" <%if(@friendship=="all")%> selected="selected" <%end%>> All </option>
+            <option value="friends" <%if(@friendship=="friends")%> selected="selected" <%end%>> Just Friends </option>
+            <option value="non_friends" <%if(@friendship=="non_friends")%> selected="selected" <%end%>>Just Non-Friends </option>
+        </select>
+    </fb:editor-custom>
+   <fb:editor-custom label="Where">
+        <select name="status">
+            <option value="all" <%if(@status=="all")%> selected="selected" <%end%>> All </option>
+            <option value="love" <%if(@status=="love")%> selected="selected" <%end%>> We like each other </option>
+            <option value="i_like" <%if(@status=="i_like")%> selected="selected" <%end%>> I like them </option>
+            <option value="they_like" <%if(@status=="they_like")%> selected="selected" <%end%>> They like me </option>
+            <option value="i_secretly_like" <%if(@status=="i_secretly_like")%> selected="selected" <%end%>>I secretly like them</option>
+            <option value="unknown" <%if(@status=="unknown")%> selected="selected" <%end%>>We don't know</option>
+        </select>
+    </fb:editor-custom>
+   <fb:editor-buttonset>
+       <fb:editor-button value=" > "/>
+   </fb:editor-buttonset>
+</fb:editor>
+<%end%>
+<!-------------- Filter form above------------------------------>
+<% if(@none) %>
+  <%=fb_explanation("Sorry, you don't have any matches yet.") %>
+<% else %>
+<form action="change_matches" method="POST" style="display: inline">
+	<fieldset class>
+		<legend>Matches</legend>
+
+		<% for couple in @matches.sort[0...50]%>
+		  <div class = "ratings">
+
+
+				<span class = "pic"><%=fb_picture(couple.not_me(@me_pic.id), :size=>'small')%></span>
+				<div class = "someText"><fb:name uid=<%= couple.not_me(@me_pic.id).user_or_fake_user.fb_id %> ></div>
+				<span class = "average">Rating: <span class = "number"><%=couple.average_in_words%></span></span>
+				<span class = "numOfVotes"><%=couple.votes_in_words%></span>
+
+<% if(!@chosen) %>
+				<div id = "inputBox">
+					<div><label class = "checkBox"><input name="<%=couple.id%>_likes"
+							value=1 <%if couple.i_openly_like?(@me_pic.id)%> checked <%end%>
+							 type="checkbox"/> I like them</label></div>
+					<div><label class = "checkBox"><input name="<%=couple.id%>_secret"
+							value=1 <%if couple.i_secretly_like?(@me_pic.id)%> checked <%end%>
+							type="checkbox"/> I secretly like them</label></div>
+					<div><button type="submit" class = "submitButton">Submit</button></div>
+				        <input type="hidden" name="<%=couple.id%>" value="1" />
+				</div>
+<% end %>
+		  </div>
+		<% end %>
+	</fieldset>
+       <input type="hidden" name="gender" value=<%= @gender%> />
+       <input type="hidden" name="status" value=<%= @status%> />
+       <input type="hidden" name="network" value=<%= @network%> />
+       <input type="hidden" name="friendship" value=<%= @friendship%> />
+</form>
+<%end%>

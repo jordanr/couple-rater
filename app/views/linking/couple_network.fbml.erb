@@ -1,0 +1,17 @@
+<% if(@net.couples.empty?) %>
+No couples
+<% else %>
+<div>
+        <% fb_table do %>
+          <% @net.couples.each_slice(3) { |couple_arr| %>
+          <% fb_tr do %>
+            <% for couple in couple_arr%>
+               <% fb_td do%>
+                  <%=fb_couple(couple, :size=>'thumb')%>
+              <%  end%>
+           <%  end%>
+         <% end %>
+         <% }%>
+        <%end%>
+</div>
+<% end %>

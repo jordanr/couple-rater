@@ -1,0 +1,11 @@
+<% if(@see_all.nil? || @see_all == []) %>
+<%= fb_explanation("None found") %>
+<% else %>
+<% for couple in @see_all[0...50] %>
+  <div class = "ratings">
+     <span class = "couple"> <%=fb_couple(couple, :size=>'small')%> </span>
+           <span class = "average">Rating: <span class = "number"><%=couple.average_in_words%></span></span>
+           <span class = "numOfVotes"><%=couple.votes_in_words%></span>
+ </div>
+<% end %>
+<% end %>

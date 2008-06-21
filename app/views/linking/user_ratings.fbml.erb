@@ -1,0 +1,15 @@
+<div><%= fb_picture(@user.picture, :size=>'thumb') %></div>
+<h1> has rated...</h1>
+<% if(@user.ratings.nil? || @user.ratings == []) %>
+<%= fb_explanation("This user hasn't rated anyone yet") %>
+<% else %>
+<% for rating in @user.ratings %>
+  <div class = "ratings">
+     <span class = "couple"> <%=fb_couple(rating.couple, :size=>'small')%> </span>
+            <span class = "average">Rating: <span class = "number">
+                <%=rating.rating.to_s%>
+                </span>
+        </span>
+ </div>
+<% end %>
+<% end %>

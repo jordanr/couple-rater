@@ -1,0 +1,36 @@
+<%= fb_picture(@couple.picture1, :size=>"normal") %>
+<%= fb_picture(@couple.picture2, :size=>"normal") %>
+
+<div style="text-align:center;">
+<div><%= link_to "Rate them", {:controller=>"linking", :action =>"rate_chosen_couple", :chosen_picture_id1=>@couple.picture1.id, :chosen_picture_id2=>@couple.picture2.id, :network=> "chosen"} %></div>
+<div><%= link_to "See all ratings", {:controller=>"linking", :action =>"couple_ratings", :couple_id=>@couple.id} %></div>
+<div><a href="#" clicktoshowdialog="send">Send to friends</a></div>
+
+<% if(!@couple.networks.nil?) %>
+<h3>find us in networks</h3>
+<% for net in @couple.networks do %>
+  <li><%= link_to net.network, {:controller=>"linking", :action=>'couple_network',:network_id=>net.id} %></li>
+<% end %>
+<% end %>
+</div>
+
+<fb:dialog id="send" cancel_button=1>
+<fb:dialog-title>Send to friends</fb:dialog-title>
+<fb:dialog-content>
+<div style="padding: 10px;">
+   <fb:request-form method="post"
+        action="<%=url_for(:controller=>"linking",:action=>"couple",:couplelink=>@couple.id)%>"
+        type="couple"
+        content='
+        <fb:req-choice url="http://apps.facebook.com/couplerater/linking/couple?couplelink=<%=@couple.id%>"
+                label="See em" />'
+    >
+    <div class="clearfix" style="padding-bottom: 10px;">
+      <fb:multi-friend-selector condensed="true" style="width: 200px;" />
+    </div>
+    <fb:request-form-submit />
+  </fb:request-form>
+</div>
+</fb:dialog-content>
+</fb:dialog>
+

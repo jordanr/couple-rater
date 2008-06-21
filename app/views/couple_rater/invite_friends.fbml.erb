@@ -1,0 +1,8 @@
+<% content_for("invite_user") do %>
+        We know who likes you.  Do you want to see?
+	<%= fb_req_choice("Check out Couple Rater!", url_for("http://apps.facebook.com/couplerater/")) %>
+<% end %>   
+
+<% fb_request_form("Couple Rater","invite_user", url_for(:controller=>"linking",:action=>"invite_friends_redirect",:only_path=>false)) do %>
+        <%= fb_multi_friend_selector("Invite your friends to Couple Rater.", :showborder => true, :exclude_ids=> @friends_with_app.join(",") ) %>
+<% end %>

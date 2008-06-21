@@ -1,0 +1,71 @@
+<% fb_table do %>
+        <% fb_tr do %>
+             <%=fb_th("Newly Rated", url_for(:controller=>'linking', :action=>'see_all', :order=>"newest"), "See all")  %>
+             <%=fb_th_spacer%>
+             <%=fb_th("Most Active", url_for(:controller=>'linking', :action=>'see_all', :order=>"active"), "See all")  %>
+        <%end%>
+        <% fb_tr do %>
+             <% fb_td(:style=>"width:306px;") do %>
+		<div id="new">
+                <% for couple in @newest[0...5]%>			
+                	<% fb_list_item do %>
+                                <%= fb_couple(couple, :size=>'thumb') %>
+				<span class="stats"><%= time_ago_in_words(couple.created_at) %> ago</span>
+               		<% end %>
+                <%end%>
+		</div>
+             <%end%>
+             <%= fb_td_spacer %>
+             <% fb_td(:style=>"width:306px;") do %>
+		<div id="active">
+                <% for couple in @recent[0...5] %>
+                	<% fb_list_item do %>
+                                <%= fb_couple(couple, :size=>'thumb') %>
+				<span class="stats"><%= time_ago_in_words(couple.updated_at) %> ago</span>
+               		<% end %>
+                <% end %>
+		</div>
+             <%end%>
+        <% end %>
+        <% fb_tr do %>
+             <%=fb_tf(url_for(:controller=>'linking', :action=>'see_all', :order=>"newest"), "See all new")  %>
+             <%=fb_tf_spacer%>
+             <%=fb_tf(url_for(:controller=>'linking', :action=>'see_all', :order=> "active"), "See all active")  %>
+        <% end %>
+<%end%>
+
+<% fb_table do %>
+        <% fb_tr do %>
+             <%=fb_th("Most Rated", url_for(:controller=>'linking', :action=>'see_all', :order=>"most_rated"), "See all")  %>
+             <%=fb_th_spacer%>
+             <%=fb_th("Highest Rated", url_for(:controller=>'linking', :action=>'see_all', :order=>"highest"), "See all")  %>
+        <%end%>
+        <% fb_tr do %>
+             <% fb_td(:style=>"width:306px;") do %>
+		<div id='most_rated'>
+                <% for couple in @rated[0...5]%>
+                        <% fb_list_item do %>
+                                <%= fb_couple(couple, :size=>'thumb') %>
+				<span class="stats"><%= couple.votes_in_words %></span>
+                        <% end %>
+		</div>
+                <%end%>
+             <%end%>
+             <%= fb_td_spacer %>
+             <% fb_td(:style=>"width:306px;") do %>
+		<div id='highest'>
+                <% for couple in @highest[0...5] %>
+                        <% fb_list_item do %>
+                                <%= fb_couple(couple, :size=>'thumb') %>
+				<span class="stats"><%= couple.average_in_words %></span>
+                        <%end%>
+                <% end %>
+		</div>
+             <%end%>
+        <% end %>
+        <% fb_tr do %>
+             <%=fb_tf(url_for(:controller=>'linking', :action=>'see_all', :order=>"most_rated"), "See all most rated")  %>
+             <%=fb_tf_spacer%>
+             <%=fb_tf(url_for(:controller=>'linking', :action=>'see_all', :order=>"highest"), "See all highest")  %>
+        <% end %>
+<%end%>

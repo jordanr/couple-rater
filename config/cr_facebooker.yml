@@ -1,0 +1,36 @@
+# The api key, secret key, and canvas page name are required to get started
+# Tunnel configuration is only needed if you are going to use the facebooker:tunnel Rake tasks
+# Your callback url in Facebook should be set to http://public_host:public_port
+
+development:
+  api_key: bedf9d9687b75599875806b8af3d1be7
+  secret_key: 38074253dd1a225d187454a627b01406
+  canvas_page_name: natecouplerater
+  callback_url: http://db9400c0.fb.joyent.us:3030/
+  tunnel:
+    public_host_username:
+    public_host: 
+    public_port: 
+    local_port:
+
+test:
+  api_key: 3650ab19a5ff16a1585fc3a4860ad252
+  secret_key: 4e389a77d374e98343dbdb75c9d38925
+  canvas_page_name: couplerater
+  callback_url: http://db9400c0.fb.joyent.us:3000/
+  tunnel:
+    public_host_username: 
+    public_host: 
+    public_port: 4007
+    local_port: 3000
+
+production:
+  api_key: 3650ab19a5ff16a1585fc3a4860ad252
+  secret_key: 4e389a77d374e98343dbdb75c9d38925
+  canvas_page_name: couplerater
+  callback_url: http://db9400c0.fb.joyent.us:3000/ 
+  tunnel:
+    public_host_username: 
+    public_host: 
+    public_port: 4007
+    local_port: 3000

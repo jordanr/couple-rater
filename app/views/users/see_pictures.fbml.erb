@@ -1,0 +1,19 @@
+<div>
+<%= fb_picture(@user.picture, :size=>"thumb") %> <b> My Photos </b> -- Profile Pictures </span>
+</div>
+<div>
+Choose your active picture from photos below.
+</div>
+<div>
+<%fb_table do %>
+ <% @photos.each_slice(3) { |photo_arr| %>
+  <%fb_tr do %>
+      <% for photo in photo_arr %>
+	<% fb_td do %>
+        <%=fb_changable_photo(photo.pid, :size=>"small")%>
+	<% end %>
+      <% end %>
+  <% end %>
+ <% } %>
+<%end%>
+</div>

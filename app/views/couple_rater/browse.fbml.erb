@@ -1,0 +1,156 @@
+<form name="rateform" action="rate" method="POST" id="rateid" style="display: inline">
+<% fb_table do %>
+        <% fb_tr do %>
+             <%=fb_th("Result","#","") %>
+             <%=fb_th_spacer%>
+	     <th>
+                    <h4>
+			<center>
+                           Show Me
+                                <select name="gender" <%if(@network=="friends")%> disabled="disabled" <%end%> >
+                                        Gender
+                                        <option value="bi" <%if(@gender=="bi")%> selected="selected" <%end%>> Everyone </option>
+                                        <option value="straight"<%if(@gender=="straight")%>selected="selected" <%end%> > Boys with Girls </option>
+                                        <option value="gay" <%if(@gender=="gay")%> selected="selected" <%end%>> Boys with Boys </option>
+                                        <option value="lesbian" <%if(@gender=="lesbian")%> selected="selected" <%end%>> Girls with Girls </option>
+                                </select>
+                            From
+                                <select name="network">
+                                        Network
+                                        <option value="friends" <%if(@network=="friends" || @network == nil)%> selected="selected" <%end%>>Friends</option>
+                                      <!--  <% if(@nets != nil) %> -->
+		                          <option value="anywhere" <%if(@network=="anywhere")%> selected="selected" <%end%>>Anywhere</option>
+                                      <!--  <%end%> -->
+					<% for net in @nets.sort %>
+					      <option value="<%=net.id %>" <%if(@network.to_s==net.id.to_s)%> selected="selected" <%end%>><%=net.network %></option>
+				        <%end%>
+                                </select>
+                            <input name="filtersubmit" type="submit" value=" next "/>
+			 </center>
+                       </h4>
+                    <a href="#" clicktoshowdialog="question_marks"> <%if(!@cr_user.see_question_marks)%> Miss <%end%> Seeing Question Marks?? </a>
+               </th>
+        <%end%>
+        <% fb_tr do %>
+             <% fb_td(:style=>"width:100px;height:375px;") do %>
+                   <%if(@rating)%>
+			<% fb_first_list_item(:style=>"height:175px;") do %>
+				 <%= fb_couple(@last_couple,{:size=>'thumb'}, {}, {},{:style=>"float:left;height:175px;width:100px", :class=>"loose_border"})%>
+			<% end %>
+			<% fb_list_item(:style=>"height:100px;") do %>
+				<div style="text-align:center;">
+                                <h1><%=link_to "Average Rating",{:controller=>"linking",:action=>"couple_ratings", :couple_id=>@last_couple.id} %> </h1>
+                                <h4><%=@last_couple.average_in_words %></h4>
+                                <h4><%=@last_couple.votes_in_words%></h4>
+				</div>
+                        <%end%>
+                        <% fb_list_item(:style=>"height:100px;") do %>
+				<div style="text-align:center;">
+                                <h1><%=link_to "Your Rating",{:controller=>"linking",:action=>"user_ratings", :user_id=>@cr_user.id} %> </h1>
+                                <h4><%=@rating.rating.to_s%></h4>
+				</div>
+                        <%end%>
+		  <%else%>
+			<% fb_first_list_item do %>
+			  <!-- Ad? -->
+			  <%= sidebar_google_ad() %>
+			<% end %>
+                   <%end%>
+             <%end%>
+             <%= fb_td_spacer %>
+             <% fb_td(:style=>"width:506px;height:375px;") do %>
+			<% fb_first_list_item do%>
+			  <center><h1><a href="#" clicktoshowdialog="add_prompt"><%=@prompt.text.to_s%></a></h1></center>
+			<%end%>
+			<% fb_list_item do %>
+			  <center>
+			   <% for n in (1..10)%>
+			        <input type="radio" name="rating" value="<%=n.to_s %>"
+					onclick="document.getElementById('rateid').submit();"> <%=n.to_s%> </input>
+			    <% end %>
+			  </center>
+			<%end%>
+			<% fb_list_item do %>
+			 	<% if @fake_couple %>
+  				  <%= fb_picture(@couple.picture1, {:size=>'normal'}, {:class=>"loose_border_noHover", :style=>'float:left;'}) %>
+				  <%= fb_picture(@couple.picture2, {:size=>'normal'}, {:class=>"loose_border_noHover", :style=>'float:right;'}) %>
+ 			          <input type="hidden" name="picture_id1" value="<%=@couple.picture1.id.to_s%>"/>
+ 			          <input type="hidden" name="picture_id2" value="<%=@couple.picture2.id.to_s%>"/>
+				<% else %>
+				  <%= fb_couple(@couple,{ :size=>'normal'}, {:style=>'float:left;'}, {:style=>'float:right;'}, {:style=>"float:left;", :class=>"loose_border_noHover"})%>
+ 			          <input type="hidden" name="couple_id" value="<%=@couple.id.to_s%>"/>
+				<% end %>
+		        <% end %>
+	        <% end %>
+        <%end%>
+	<% fb_tr do %>
+            <%=fb_tf("#","") %>
+            <%=fb_tf_spacer%>
+            <td class="see_all"><div><a href="#" clicktoshowdialog="send">Send message to friends</a></div></td>
+        <% end %>
+<%end%>
+</form>
+
+<fb:dialog id="send" cancel_button=1>
+<fb:dialog-title>Send to friends</fb:dialog-title>
+<fb:dialog-content>
+<div style="padding: 10px;">
+   <fb:request-form method="post"
+        action="<%=url_for(:controller=>"linking",:action=>"invite_friends_redirect",:only_path=>false)%>"
+        type="couple"
+        content='
+        <fb:req-choice url="http://apps.facebook.com/couplerater/"
+                label="Check it out" />'
+    >
+    <div class="clearfix" style="padding-bottom: 10px;">
+      <fb:multi-friend-selector condensed="true" style="width: 200px;" />
+    </div>
+    <fb:request-form-submit />
+  </fb:request-form>
+</div>
+</fb:dialog-content>
+</fb:dialog>
+
+<!-- Question Mark redirection-- this below to avoid nil error on rating-->
+<%if(not @question_mark_count.nil?) %>
+<% if(@rating) %>
+<% rating_id = @rating.id %>
+<% else %>
+<% rating_id = nil %>
+<% end %>
+
+<fb:if-can-see uid= "<%=@couple.picture1.user_or_fake_user.fb_id %>" what="profile"><fb:else>
+<fb:redirect url="<%= url_for(:controller=>'couple_rater',:action=>'browse',:rating_id=>rating_id,:gender=>@gender, :network=>@network, :question_mark_count=>(@question_mark_count+1) ) %>" />
+</fb:else>
+</fb:if-can-see>
+
+<fb:if-can-see uid= "<%=@couple.picture2.user_or_fake_user.fb_id %>" what="profile"><fb:else>
+<fb:redirect url="<%= url_for(:controller=>'couple_rater',:action=>'browse',:rating_id=>rating_id,:gender=>@gender, :network=>@network, :question_mark_count=>(@question_mark_count+1) ) %>" />
+</fb:else>
+</fb:if-can-see>
+<%end%>
+<!-- end of question mark redirect-->
+
+<!-- dialog to handle question mark preference -->
+<fb:dialog id="question_marks" cancel_button=1>
+<fb:dialog-title>Change Question Mark Setting</fb:dialog-title>
+<fb:dialog-content>
+
+<%if(@cr_user.see_question_marks)%> Disallow <%else%> Allow <%end%> Question Marks?
+(Disallowing them eliminates some valid couples.)
+
+</fb:dialog-content>
+<fb:dialog-button type="button" value="Yes"
+href= <%=url_for(:controller=>"linking",:action=>"change_question_mark_setting",:answer=>"yes") %> />
+</fb:dialog>
+
+<!-- dialog to handle new prompts -->
+<fb:dialog id="add_prompt" cancel_button=1>
+<fb:dialog-title>Create your own Prompt!</fb:dialog-title>
+<fb:dialog-content>
+        <form id="prompt_form" action= <%=url_for(:controller=>"linking",:action=>"make_new_prompt")%>  method="POST" > 
+	  <input type="text" name="prompt" value="?"/>
+	</form>
+</fb:dialog-content>
+<fb:dialog-button type="button" value="Create Prompt" form_id="prompt_form" />
+</fb:dialog>

@@ -1,0 +1,20 @@
+<fb:subtitle seeallurl="<%=url_for(:controller=>'couple_rater',:action=>'see_matches')%>"> 
+    Recently Coupled With
+</fb:subtitle>
+
+<style>
+h1 span, h1 img{
+        vertical-align:middle;
+}  
+</style>
+<h1> <%= image_tag("the_big_c.png") %> <span><%=link_to "the Cool Couple Rater App", {:controller=>"couple_rater",:action=>"browse",:only_path=>false}%></span> </h1>
+
+<fb:user-table>
+<% couples.each do |couple| %>
+   <%if(couple.picture1.user.fb_id==pic.user.fb_id)%>
+        <fb:user-item uid="<%=couple.picture2.user.fb_id.to_s%>" />
+   <%else%>
+        <fb:user-item uid="<%=couple.picture1.user.fb_id.to_s%>" />
+   <%end%>
+<% end %>
+</fb:user-table>
