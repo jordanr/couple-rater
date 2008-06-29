@@ -60,9 +60,7 @@ class UsersController < ApplicationController
 
   # just redirects back with success message and params
   def filter_matches
-      flash[:notice] = '<fb:success>
-			<fb:message>Success</fb:message>
-			These are your matches.</fb:success>'
+      flash[:notice] = 'These are your matches.'
       redirect_to(:controller => "users", :action => "see_matches", :network=> params[:network], :gender=>params[:gender], :status=>params[:status], 
 						:friendship=>params[:friendship])
   end
@@ -103,18 +101,13 @@ class UsersController < ApplicationController
   # handles changes the active picture
   def change_picture
     if(params[:choice].nil?)
-      flash[:notice] = '<fb:error>
-			<fb:message>Picture Change Failed!</fb:message>
-			We could not handle your request.  Please report this bug.
-			</fb:error>'
+      flash[:error] = 'Picture Change Failed!'
       redirect_to(:action => "see_pictures") 
     else 
       fb_user = facebook_session.user
       cr_user = User.find_by_fb_id(fb_user.to_i)
       cr_user.update_picture(params[:choice])
-      flash[:notice] = '<fb:success>
-			<fb:message>Success</fb:message>
-			You have changed your picture.</fb:success>'
+      flash[:notice] = 'You have changed your picture.'
       redirect_to(:controller => "users", :action => "see_privacy")
     end
   end
@@ -131,9 +124,7 @@ class UsersController < ApplicationController
     fb_user = facebook_session.user
     user = User.find_by_fb_id(fb_user.to_i)
     user.update_attributes(posted_user)
-    flash[:notice] = '<fb:success>
-			<fb:message>Success</fb:message>
-			You have updated your privacy settings.</fb:success>'
+    flash[:notice] = 'You have updated your privacy settings.'
     redirect_to(:controller => "users", :action => "see_privacy")
   end
 
@@ -159,9 +150,7 @@ class UsersController < ApplicationController
 	  cr_user.networks << network
         end
     }    
-    flash[:notice] = '<fb:success>
-			<fb:message>Success</fb:message>
-			You have updated your networks.</fb:success>'
+    flash[:notice] = 'You have updated your networks.'
     redirect_to(:controller => "users", :action => "see_networks")
   end
 end

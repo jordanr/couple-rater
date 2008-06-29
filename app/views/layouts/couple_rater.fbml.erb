@@ -1,7 +1,7 @@
 <!-- This layout is automatically included at the top of all of our views.-->
 <%= fb_css %>
 <%= cr_css %>
-<% if flash[:notice] %> <%= flash[:notice] %> <% end %>
+<%= facebook_messages %>
 
 <% fb_dashboard do %>
   <!--  <%= fb_action 'my friends', url_for(:controller=>'users',:action=>'see_friends') %> -->

@@ -6,7 +6,7 @@
 # Other functions have no views.  They correspond to
 # form posts.  They redirect back to the main views.
 class CoupleRaterController < ApplicationController
-include CoupleRaterHelper
+  include CoupleRaterHelper
   # go to app/views/layouts/couple_rater.fbml.erb to see
   # our layout.  Contains fb css styling,fb dashboard, fb tabs
   layout "couple_rater.fbml.erb"
@@ -27,12 +27,8 @@ include CoupleRaterHelper
     # we allow people to see question marks but this user disagrees
     if(SEE_QUESTION_MARKS and !@cr_user.see_question_marks)
       if(params[:question_mark_count].to_i > 5)
-            flash[:notice] = "<fb:explanation>
-                                <fb:message>We couldn't make a couple. </fb:message>
-				You might be able to see a couple if you allow 
-				<a href= #{url_for(:controller=>"users",:action=>"see_privacy")}>
-				question marks</a>.
-                          </fb:explanation>"
+            flash[:info] = "We couldn't make a couple."
+	    flash[:info_text] = "You might be able to see a couple if you allow question_marks."
         redirect_to({:action => "browse", :network=> "invite_friends"})
 	return
       else  # nil.to_i casts to 0 in Ruby
@@ -88,30 +84,21 @@ include CoupleRaterHelper
     # see if we have enough users
     if(two_users.nil? and two_pics.nil?)
         # accumulate the messages
-	flash[:notice]= "" if flash[:notice].nil?
 	case(@network)
 	  when "chosen":
-	    flash[:notice] += "<fb:error> 
-				<fb:message>We couldn't make the chosen couple. </fb:message>
-				How did that happen?  Please report this bug.
-			     </fb:error>"
+	    flash[:error] = "We couldn't make the chosen couple."
+	    flash[:error_text] = "How did that happen?  Please report this bug."
 	  when "friends":
-    	    flash[:notice] += "<fb:explanation> 
-				<fb:message>You don't have enough friends</fb:message>
-				You must have at least 2 friends to rate a friend couple.
-			  </fb:explanation>" 
+    	    flash[:info] = "You don't have enough friends"
+	    flash[:info_text] =	"You must have at least 2 friends to rate a friend couple."
 	    redirect_to({:action => "browse", :network=> "anywhere"})
 	    return
  	  when "anywhere":
-    	    flash[:notice] += "<fb:explanation> 
- 				<fb:message>None of your networks have members</fb:message>
-			 	You cannot rate any network couples.
-			  </fb:explanation>" 
+    	    flash[:info] = "None of your networks have members"
+	    flash[:info_text] = "You cannot rate any network couples."
  	  else
-	    flash[:notice] += "<fb:explanation> 
-				<fb:message>We couldn't make a couple. </fb:message>
-				You are the only person in this network/gender group.
-			  </fb:explanation>"
+	    flash[:info] = "We couldn't make a couple."
+	    flash[:info_text] = "You are the only person in this network/gender group."
 	end
         redirect_to({:action => "invite_friends"})
     elsif(two_users.nil?) # we have two pictures
@@ -147,9 +134,8 @@ include CoupleRaterHelper
  	elsif(!CREATE_ZERO_RATED_COUPLES and params[:picture_id1] and params[:picture_id2])
 	    couple = Couple.find_or_create(params[:picture_id1], params[:picture_id2])
 	else # something screwy
-	    flash[:notice] = "<fb:explanation><fb:message>Rating Failed! 
-					  </fb:message> How did you get here?
-	 		    </fb:explanation>"
+	    flash[:error] = "Rating Failed!"
+	    flash[:error_text] = "How did you get here?"
             redirect_to({:action => "browse"})
 	    return
  	end
@@ -157,11 +143,8 @@ include CoupleRaterHelper
 	if(couple.both_pictures_are_users?)
 	  couple.refresh_networks
         else
-   	      message = "One of your friends in the last couple does not have Couple Rater."
-	      flash[:notice] = "<fb:explanation><fb:message> #{message}
-			        </fb:message><a href= #{url_for(:action=>"invite_friends")} >
-				Invite them so they can see your rating!</a>
-	 		        </fb:explanation>"
+   	      flash[:info] = "One of your friends in the last couple does not have Couple Rater."
+	      flash[:info_text] = "Invite them so they can see your rating!"
 	end
 
         # add the rating/update our couple

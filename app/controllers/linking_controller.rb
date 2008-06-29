@@ -44,8 +44,7 @@ class LinkingController < ApplicationController
   # of the passed statistic type.
   def see_all
     if(!params[:order])
-	flash[:notice] = '<fb:error><fb:message> Error! </fb:message>
-			 How did you get here? </fb:error>'
+	flash[:error] = "How did you get here?"
   	redirect_to :controller=>"couple_rater", :action=>"see_globals"
 	return
     end
@@ -66,17 +65,13 @@ class LinkingController < ApplicationController
   # the chosen two pictures to rate
   def rate_chosen_couple
     if(params[:chosen_picture_id1] and params[:chosen_picture_id2])
-        flash[:notice] = '<fb:explanation>
-                          <fb:message> You have chosen this non-random couple
-                      </fb:message></fb:explanation>'
+        flash[:info] = 'You have chosen this non-random couple'
         redirect_to(:controller=>"couple_rater",:action=>"browse",
 			:chosen_picture_id1=>params[:chosen_picture_id1],
 			:chosen_picture_id2=>params[:chosen_picture_id2],
 			:network=>"chosen")
     else
-        flash[:notice] = '<fb:error> Error
-                          <fb:message> How did you get here?
-                          </fb:message></fb:error>'
+        flash[:error] = "How did you get here?"
         redirect_to(:controller=>"couple_rater",:action=>"browse")
     end
   end
@@ -85,13 +80,9 @@ class LinkingController < ApplicationController
   def see_matches_of_chosen_user
     if(params[:chosen_user_id])
         cr_user = User.find(params[:chosen_user_id])
-        flash[:notice] = '<fb:explanation> 
-                          <fb:message> Matches of ' + cr_user.first_name.to_s +
-                          '</fb:message></fb:explanation>'
+        flash[:info] = "Matches of #{cr_user.first_name.to_s}"
     else
-        flash[:notice] = '<fb:error> Error
-                          <fb:message> How did you get here?
-                          </fb:message></fb:error>'
+        flash[:error] = 'How did you get here?'
     end
     redirect_to(:controller=>"users",:action=>"see_matches", :chosen_user_id=>params[:chosen_user_id])
   end
@@ -107,8 +98,7 @@ class LinkingController < ApplicationController
     if(couple.both_like?)
 	redirect_to(:controller=>"messaging",:action=>"both_like",:who=>victim.fb_id, :couple_id=>couple.id)
     else
-        flash[:notice] = '<fb:success> <fb:message>Success</fb:message> 
-			We will keep your secret save.</fb:success>'
+        flash[:notice] = 'We will keep your secret save.'
         redirect_to(:controller=>"linking",:action=>"picture",:picturelink=>victim.picture.id)
     end
   end
@@ -124,27 +114,21 @@ class LinkingController < ApplicationController
     else
     	message = "Ok, no more question marks!  You can always change back if you find it too limiting."
     end
-    flash[:notice] = "<fb:success> <fb:message> Preference Saved
-			</fb:message> #{message}
-			</fb:success>"
+    flash[:notice] = message
     redirect_to(:controller=>"couple_rater",:action=>"browse")
   end	
 
   # Redirects the main page and gives a success message 
   # after user invite actions.
   def invite_friends_redirect
-    flash[:notice] = "<fb:success> <fb:message> Success
-			</fb:message> Invite Sent!
-			</fb:success>"
+    flash[:notice] = "Invite Sent!"
     redirect_to(:controller=>"couple_rater",:action=>"browse")
   end
 
   def make_new_prompt
     cr_user = User.find_by_fb_id(facebook_session.user.to_i)
     cr_user.prompts.create(:text=>params[:prompt]) if(params[:prompt])
-    flash[:notice] = "<fb:success> <fb:message> Success
-			</fb:message> New prompt created!
-			</fb:success>"
+    flash[:notice] = "New prompt created!"
     redirect_to(:controller=>"couple_rater",:action=>"browse")
   end
 end

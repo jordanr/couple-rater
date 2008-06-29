@@ -25,8 +25,7 @@ include FacebookUser
      message= ', I am poking you from <a href="'+ url_for({:controller=>"couple_rater",:action=>"browse", :only_path=>false})+'" >Couple Rater</a>'
      FacebookerPublisher.deliver_notification(to, from, message)
      FacebookerPublisher.deliver_poke_templatized_news_feed(from, to_user)
-     flash[:notice] = '<fb:success> <fb:message> Success </fb:message>'+
-		 	'You poked your friend. </fb:success>'
+     flash[:notice] = 'You poked your friend.'
      redirect_to(:controller=>"linking", :action => "picture", :picturelink=>to_user.picture.id)
   end
 
@@ -45,8 +44,7 @@ include FacebookUser
        FacebookerPublisher.deliver_notification(to, from, message)
        FacebookerPublisher.deliver_openly_like_templatized_news_feed(from, to_user)
 
-       flash[:notice] = '<fb:success> <fb:message> Success </fb:message>'+
-  	  	 	  'You said you like their picture. </fb:success>'
+       flash[:notice] = 'You said you like their picture.'
        redirect_to(:controller=>"linking", :action => "picture", :picturelink=>to_user.picture.id)
      end
   end
@@ -62,8 +60,7 @@ include FacebookUser
      FacebookerPublisher.deliver_notification(to, from, message)
      FacebookerPublisher.deliver_both_like_templatized_news_feed(from, to_user, params[:couple_id])
 
-     flash[:notice] = '<fb:success> <fb:message> Notification Sent! </fb:message>'+
-			  'They like you too!</fb:success>'
+     flash[:notice] = 'They like you too!'
      redirect_to(:controller=>"linking", :action => "couple", :couplelink=>params[:couple_id])
    end
 
