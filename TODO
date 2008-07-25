@@ -1,0 +1,5 @@
+July 25, 2008
+* get rid off all the non-core features
+* rewrite publisher features to be simple, good examples
+* take advantage of all the new Facebook API features
+* make examples using Facebooker's ajax support
