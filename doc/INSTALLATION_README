@@ -1,0 +1,55 @@
+Couple Rater Installation and Deployment Instructions:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Preliminary Instructions:
+-------------------------
+
+Untar and unzip the couple_rater.tar.gz file into a directory where you would like the
+Couple Rater software to reside. Change into the 'couple_rater' directory, which will
+be called {ROOT} in the rest of this document.
+
+Install all "System Requirements" outlined in DEVELOPERS_README.
+
+Add the "Developer" app to your Facebook account by logging into your account
+and going to 'http://www.facebook.com/developers/'.
+
+
+Creating the App in Facebook:
+-----------------------------
+
+After adding the Developer app, go to it by clicking on the Developer app link on
+the list of apps on the left hand side of your Facebook home page. Click on "Set Up
+New Application" in the top right corner. Enter a name for your application, check the box, 
+and click "Submit." Now open '{ROOT}/conf/facebooker.yml'. From the page you are now seeing
+in your browser, you should see an "API Key" and "Secret Key". Copy these into either the
+'development' or 'production' sections of facebooker.yml. Use the former if you are
+developing Couple Rater or the latter if you are trying to deploy a production copy
+of Couple Rater. Now click on "Edit Settings" in your browser. Enter a "Callback URL", which
+is the Fully Qualified Domain Name of the server hosting Couple Rater. Make sure to
+use an available port and note this port number for later use. Finally, enter a
+"Canvas Page URL", which is the URL users see and use to access your app, and choose "yes"
+for "Can your application be added on Facebook?".
+
+
+Running the Couple Rater Software:
+----------------------------------
+
+From the {ROOT} directory, execute 'rake db:migrate' to create a new database for
+your Couple Rater app.
+
+From the {ROOT} directory, run 'ruby script/server -p <port_num>', where port_num is
+the available port number that you used in the "Callback URL" above. This will start
+the server for Couple Rater and, if no errors are shown and all the above steps have
+been successfully followed, you have successfully deployed Couple Rater.
+
+Optional: Run 'rake test' from the {ROOT} directory to run the included test suite. See
+DEVELOPERS_README for more information on running tests.
+
+Go to your Canvas Page URL (http://apps.facebook.com/<url_you_entered_here>) to begin
+using Couple Rater.
+
+
+----
+
+Questions or comments?  Please e-mail us at Facebook_Viral@u.washington.edu.

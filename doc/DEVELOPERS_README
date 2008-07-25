@@ -1,0 +1,73 @@
+Developer's Guide:
+~~~~~~~~~~~~~~~~~~
+
+
+BUILDING FROM SOURCE
+--------------------
+Instructions for building Couple Rater from source files can be found in INSALLATION_README.
+
+
+SYSTEM REQUIREMENTS
+-------------------
+Ruby 1.8.6
+Rails 2.0.2 (http://www.rubyonrails.org/down)
+Ruby Gems:
+    facebooker (0.9.5)
+    rfacebook (0.9.8)
+    json (1.1.2)
+    ruby-json (1.1.2)
+    sqlite3-ruby (1.2.1)
+Facebook Account with Developer application
+
+RUNNING THE TEST SUITE
+----------------------
+Run "rake test" after unpacking Couple Rater and initializing database.  This runs all unit and 
+functional tests found in test/unit and test/functional.  Expected test results can be found at
+the end of this guide.
+
+Note: Functional tests will not work if config/facebooker.yml is incorrectly configured.  See
+      DEPLOYMENT_README for more information.
+
+
+IMPORTANT FILES
+---------------
+Rakefile                        -- Ruby Makefile
+db/schema.rb                    -- Database Schema
+db/development.sqlite3          -- Database
+config/facebooker.yml           -- Facebook configuration: API keys, callback URL
+test/unit/                      -- Unit Tests
+test/functional/                -- Functional Tests
+
+app/views/layouts/              -- Template files for layouts used with views
+apps/models/                    -- Database logic and routines
+
+apps/views/                     -- Web User Interface
+apps/views/layouts/             -- main template for all Couple Rater pages (tabs, frames)
+apps/views/couple_rater/        -- Views for "Rate!", "Couplistics", "Invite Your Friends!", ".A.Q."
+apps/views/users/               -- Views for "edit picture", "edit privacy", "edit networks", "my matches", "my friends"
+
+apps/controllers/               -- Intermediary routines, between views and database
+apps/helpers/                   -- Helper routines for controllers
+
+
+EXPECTED TEST RESULTS
+---------------------
+Note: an empty database will cause several "warning: tried to create Proc object without a block" warnings that can be safely ignored
+
+/opt/local/bin/ruby18 -Ilib:test "/opt/local/lib/ruby/gems/1.8/gems/rake-0.8.1/lib/rake/rake_test_loader.rb" "test/unit/picture_test.rb" "test/unit/rating_test.rb" "test/unit/couple_test.rb" "test/unit/user_test.rb" "test/unit/network_test.rb" 
+(in /home/mgklous/couple_rater/tags/beta5)
+./test/unit/user_test.rb:144: warning: don't put space before argument parentheses
+Loaded suite /opt/local/lib/ruby/gems/1.8/gems/rake-0.8.1/lib/rake/rake_test_loader
+Started
+..................................
+Finished in 3.327563 seconds.
+
+34 tests, 1184 assertions, 0 failures, 0 errors
+/opt/local/bin/ruby18 -Ilib:test "/opt/local/lib/ruby/gems/1.8/gems/rake-0.8.1/lib/rake/rake_test_loader.rb" "test/functional/messaging_controller_test.rb" "test/functional/linking_controller_test.rb" "test/functional/couple_rater_controller_test.rb" "test/functional/users_controller_test.rb" 
+Loaded suite /opt/local/lib/ruby/gems/1.8/gems/rake-0.8.1/lib/rake/rake_test_loader
+Started
+....
+Finished in 2.830921 seconds.
+
+54 tests, 288 assertions, 0 failures, 0 errors
+/opt/local/bin/ruby18 -Ilib:test "/opt/local/lib/ruby/gems/1.8/gems/rake-0.8.1/lib/rake/rake_test_loader.rb"  
